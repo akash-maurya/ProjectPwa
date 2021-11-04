@@ -94,7 +94,7 @@ useEffect(() => {
           </h1>
 
           <div className={style.flex_box}>
-            {!CheckLogin && (
+            {!CheckLogin && !props.isloading && (
               <Link href="/login" passHref>
                 <button onClick={handleclick} className={style.btn}>
                   Login
