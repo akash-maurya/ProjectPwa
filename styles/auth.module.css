@@ -1,0 +1,78 @@
+.container{
+    margin: 0;
+    padding: 0;
+    background-image: url('../public/pexels-becerra-govea-photo-5774154.jpg'); 
+    position: absolute;
+     /* background-size: 900px 800px;  */ 
+    background-color: rgb(246, 252, 252); 
+    width: 100%;
+    height: 100%;
+    background-size: cover; 
+    
+}
+
+  .layer {
+     background-color: rgba(32, 31, 31, 0.7);
+    /* position: relative; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading{
+   font-size: 5rem;
+   font-weight: bold;
+   color: rgb(238, 235, 235);
+}
+
+.routes{
+    display: flex;
+   
+    align-items: center;
+    justify-content: center;
+}
+
+.link{
+  width: 14rem;
+  height: 3rem;
+  background-color: rgb(177, 34, 34);
+  margin: 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  border: none;
+  color: white;
+  box-shadow: 0rem 0.3rem 0.6rem rgb(172, 167, 167);
+  
+}
+.link:hover{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px){
+    .heading{
+   font-size: 3rem;
+   color: rgb(238, 235, 235);
+   text-align: center;
+}
+
+.routes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+}
+
+@media screen  and (min-width : 500px ){
+    .heading{
+   font-size: 4rem;
+   color: rgb(238, 235, 235);
+   text-align: center;
+}
+}

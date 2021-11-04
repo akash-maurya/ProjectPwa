@@ -1,0 +1,480 @@
+.container{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 1rem;
+}
+.update_box{
+   
+    width: 102%;
+    background-color: rgb(255, 253, 253);
+    height: 4rem;
+    font-size: 1rem;
+    box-shadow: 2px 2px 8px 5px rgb(194, 192, 192);
+}
+.back_arrow{
+    /* position: fixed; */
+    width: 2rem;
+    height: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: auto;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+#heading {
+   
+    font-size: 1.3rem;
+    /* position: absolute; */
+    margin: auto;
+    margin-left: 45%;
+    margin-top: -1rem;
+    color: #000;
+    font-weight: 300;
+}
+
+
+.image_section{
+    position :relative;
+    width: 2rem;
+    height: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: -1.5rem;
+}
+
+.image{
+   
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
+.text_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1rem;
+}
+
+.input{
+    min-width: 58rem;
+    min-height: 2.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    border-radius: 4px;
+    padding-left: 5px;
+    border : 1px solid #1f1e1e;
+}
+
+
+.btn{
+    width: 58rem;
+    height: 5vh;
+    margin:auto ;
+    margin-top: 1.5rem;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    border: none;
+    background-color: #e41d36;
+    color: white;
+    cursor: pointer;
+}
+.btn_logout{
+    width: 58rem;
+    height: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    background-color: rgb(247, 243, 243);
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    cursor: pointer;
+}
+
+.name{
+    display: flex;
+    
+}
+.label{
+    font-size: 1.3rem;
+    font-weight: 200;
+    margin: 0.5rem;
+}
+.column_flex{
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem;
+}
+
+.name_input{
+    width: 27rem;
+    height: 2.5rem;
+    font-size: 1.3rem;
+    border-radius: 4px;
+    padding-left: 5px ;
+    border : 1px solid rgb(138, 134, 134);
+    box-shadow: 2px 2px sloid rgb(88, 87, 87);
+}
+
+@media screen and (max-width : 550px ) {
+.container{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 1rem;
+}
+.update_box{
+    width: 102%;
+    background-color: rgb(255, 251, 251);
+    height: 4rem;
+    font-size: 1rem;
+    box-shadow: 2px 2px 8px 5px rgb(194, 192, 192);
+}
+.back_arrow{
+    /* position: fixed; */
+    width: 2rem;
+    height: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: auto;
+    margin-left: 1rem;
+}
+
+#heading {
+    /* position: absolute; */
+    font-size: 1.3rem;
+    position: absolute;
+    margin: auto;
+    margin-left: 42%;
+    margin-top: -1rem;
+    color: #000;
+    font-weight: 300;
+}
+
+.image_section{
+    position :relative;
+    width: 35vw;
+    height: 5vh;
+    margin-left: 30vw;
+    margin-top: 7vh;
+    margin-bottom: 2.5rem;
+}
+
+
+.label{
+    font-size: 0.8rem;
+    font-weight: 200;
+    margin: 0.3rem;
+}
+
+.input{
+    min-width: 85vw;
+    min-height: 2.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 4px;
+    padding-left: 5px;
+    border : 1px solid rgb(138, 134, 134);
+}
+.text_container{
+   margin-top: 0rem;
+}
+
+.name_input{
+    width: 40vw;
+    height: 2.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 4px;
+    padding-left: 5px ;
+  
+    border : 1px solid rgb(138, 134, 134);
+    box-shadow: 2px 2px sloid rgb(88, 87, 87);
+}
+
+.column_flex{
+    display: flex;
+    flex-direction: column;
+    margin: 0.7rem;
+    margin-top: 2rem;
+}
+
+
+.btn{
+    width: 85vw;
+    height: 5vh;
+    margin:auto ;
+    margin-top: 2rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    background-color: #e41d36;
+    color: white;
+    cursor: pointer;
+    /* border : 1px solid rgb(138, 134, 134); */
+    border: none;
+}
+.name{
+    display: flex;
+    margin-top: 1.5rem;
+}
+.btn_logout{
+    width: 85vw;
+    height: 5vh;
+    margin-top: 1rem;
+    margin-left: 8%;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    background-color: rgb(255, 255, 255);
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    outline: none;
+    cursor: pointer;
+}
+
+}
+
+
+
+@media screen and (min-width : 550px) and (max-width : 700px){ 
+
+.container{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 1rem;
+}
+.update_box{
+    width: 102%;
+    background-color: rgb(255, 253, 253);
+    height: 4rem;
+    font-size: 1.5rem;
+    box-shadow: 2px 2px 8px 5px rgb(194, 192, 192);
+}
+.back_arrow{
+   /* position: fixed; */
+    width: 2rem;
+    height: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: auto;
+    margin-left: 1rem;
+  
+}
+
+
+#heading {
+    /* position: absolute; */
+    font-size: 1.5rem;
+    position: absolute;
+    margin-left: 38%;
+    margin-top: -1.5rem;
+    color: #000;
+    font-weight: 300;
+}
+
+.image_section{
+    position :relative;
+    width: 25vw;
+    height: 5vh;
+    margin-left: 30vw;
+    margin-top: 7vh;
+    margin-bottom: 2.5rem;
+}
+
+
+.label{
+    font-size: 0.8rem;
+    font-weight: 200;
+    margin: 0.3rem;
+}
+
+.input{
+    min-width: 84vw;
+    min-height: 2.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding-left: 5px;
+     border : 1px solid rgb(138, 134, 134);
+}
+.text_container{
+   margin-top: 0rem;
+}
+
+.name_input{
+    width: 40vw;
+    height: 2.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding-left: 5px ;
+    border : 1px solid rgb(138, 134, 134);
+    box-shadow: 2px 2px sloid rgb(88, 87, 87);
+}
+
+.column_flex{
+    display: flex;
+    flex-direction: column;
+    margin: 0.7rem;
+    margin-top: 2rem;
+}
+
+
+.btn{
+    width: 85vw;
+    height: 5vh;
+    margin:auto ;
+    margin-top: 2rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    background-color: #e41d36;
+    color: white;
+    cursor: pointer;
+    /* border : 1px solid rgb(138, 134, 134); */
+    border: none;
+}
+.name{
+    display: flex;
+    margin-top: 1.5rem;
+}
+.btn_logout{
+    width: 85vw;
+    height: 5vh;
+    margin-top: 1rem;
+    margin-left: 8%;
+   
+    border-radius: 3px;
+    font-size: 0.8rem;
+    background-color: rgb(255, 255, 255);
+    color: #e41d36;
+     border: 1px solid #e41d36;
+     outline: none;
+     cursor: pointer;
+}
+
+} 
+@media screen and (min-width: 701px) and (max-width:1000px) {
+       
+.container{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 1rem;
+}
+.update_box{
+    width: 102%;
+    background-color: rgb(255, 253, 253);
+    height: 4rem;
+    font-size: 1.5rem;
+    box-shadow: 2px 2px 8px 5px rgb(194, 192, 192);
+}
+.back_arrow{
+   /* position: fixed; */
+    width: 2rem;
+    height: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: auto;
+    margin-left: 1rem;
+  
+}
+
+
+#heading {
+    /* position: absolute; */
+    font-size: 1.5rem;
+    position: absolute;
+    margin-left: 42%;
+    margin-top: -1.5rem;
+    color: #000;
+    font-weight: 300;
+}
+
+.image_section{
+    position :relative;
+    width: 11rem;
+    height: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7vh;
+    margin-bottom: 2.5rem;
+}
+
+
+.label{
+    font-size: 0.8rem;
+    font-weight: 200;
+    margin: 0.3rem;
+}
+
+.input{
+    min-width: 84vw;
+    min-height: 2.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding-left: 5px;
+     border : 1px solid rgb(138, 134, 134);
+}
+.text_container{
+   margin-top: -1rem;
+   margin-bottom: 10rem;
+}
+
+.name_input{
+    width: 40vw;
+    height: 2.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding-left: 5px ;
+    border : 1px solid rgb(138, 134, 134);
+    box-shadow: 2px 2px sloid rgb(88, 87, 87);
+}
+
+.column_flex{
+    display: flex;
+    flex-direction: column;
+    margin: 0.7rem;
+    margin-top: 2rem;
+}
+
+
+.btn{
+    width: 85vw;
+    height: 5vh;
+    margin:auto ;
+    margin-top: 2rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    background-color: #e41d36;
+    color: white;
+    cursor: pointer;
+    /* border : 1px solid rgb(138, 134, 134); */
+    border: none;
+}
+.name{
+    display: flex;
+    margin-top: 1.5rem;
+}
+.btn_logout{
+    width: 85vw;
+    height: 5vh;
+    margin-top: 1rem;
+    margin-left: 8%;
+   
+    border-radius: 3px;
+    font-size: 0.8rem;
+    background-color: rgb(255, 255, 255);
+    color: #e41d36;
+     border: 1px solid #e41d36;
+     outline: none;
+     cursor: pointer;
+}
+}

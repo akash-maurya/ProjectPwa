@@ -1,0 +1,56 @@
+.profilepic {
+  border-radius: 50%;
+  width: 13rem;
+  height: 13rem;
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.submitbtn {
+  color: #fff;
+  background-color: #e41d36;
+}
+.submitbtn:hover {
+  color: #fff;
+}
+
+.imgbox {
+  background-color: #f8f8f8;
+}
+@media screen and (max-width: 550px) {
+  .profilepic {
+    border-radius: 50%;
+    width: 8rem;
+    height: 8.5rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+@media screen and (min-width: 550px) and (max-width: 700px) {
+  .profilepic {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 970px) {
+  .profilepic {
+    border-radius: 50%;
+    width: 12rem;
+    height: 12rem;
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+}
+@media screen and (min-width: 970px) and (max-width: 1400px) {
+  .profilepic {
+    width: 13rem;
+    height: 13rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50%;
+  }
+}

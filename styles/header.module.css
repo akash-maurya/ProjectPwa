@@ -1,0 +1,406 @@
+.container {
+  position: relative;
+  margin: 2rem;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  min-width: 100vw;
+  max-width: 30rem;
+  background-color: #e41d36;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 40px 10px 40px;
+  flex-wrap: wrap;
+  height: 5.5rem;
+  z-index: 10;
+}
+
+.shopping_cart {
+  font-size: 1.5rem;
+  color: orange;
+}
+.circlebutton {
+  border-radius: 50%;
+}
+
+.heading {
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(230, 224, 224);
+  margin: 8px 1px 2px 18px;
+}
+
+.green {
+  text-align: center;
+  color: rgb(245, 237, 236);
+}
+
+div.search_box:hover {
+  box-shadow: 2px 2px 5px rgb(116, 113, 113);
+}
+.flex_box {
+  display: flex;
+  margin-left: 66%;
+}
+
+.btn {
+  margin: 10px;
+  padding: 8px;
+  width: 7vw;
+  height: 3rem;
+  border-radius: 5px;
+  color: #e41d36;
+  border: 1px solid #e41d36;
+  font-size: 1.2rem;
+}
+
+.profile_btn {
+  margin: 10px;
+  padding: 8px;
+  width: 5rem;
+  height: 3rem;
+  border-radius: 5px;
+  color: #e41d36;
+  border: 1px solid #e41d36;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.icon {
+  width: 3vw;
+  height: 6.2vh;
+  background: rgb(121, 119, 119);
+  size: 10px;
+  border-radius: 0 8px 8px 0;
+}
+.icon:hover {
+  cursor: pointer;
+}
+
+button.btn:hover {
+  /* background-color: red;
+              color: white; */
+  cursor: pointer;
+}
+@media screen and (max-width: 300px) {
+  .navbar {
+    width: 125%;
+    background-color: #e41d36;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    height: 5rem;
+  }
+  .shopping_cart {
+    font-size: 1.2rem;
+    color: orange;
+  }
+
+  .heading {
+    font-size: 1.2rem;
+    text-align: center;
+    color: rgb(230, 224, 224);
+    margin: 8px 0 2px 5px;
+  }
+
+  .btn {
+    margin: 10px;
+    padding: 8px;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 5px;
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    font-size: 1rem;
+  }
+  .profile_btn {
+    margin: 10px;
+    padding: 8px;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 5px;
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .flex_box {
+    display: flex;
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 301px) and (max-width: 550px) {
+  .navbar {
+    width: 100vw;
+    background-color: #e41d36;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+
+    flex-wrap: wrap;
+    height: 5rem;
+  }
+  .heading {
+    font-size: 1.5rem;
+    margin: 8px 4px 2px 8px;
+  }
+  .icon {
+    width: 10vw;
+    height: 5vh;
+    background: rgb(121, 119, 119);
+
+    border: none;
+    outline: none;
+    border-radius: 0 4px 4px 0;
+  }
+  .flex_box {
+    display: flex; /* float: right; */
+    margin-left: auto;
+  }
+  .search_box {
+    margin: auto;
+    margin-left: 10px;
+
+    width: 45vw;
+    height: 5vh;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+  }
+  .search_box input {
+    font-size: 0.8rem;
+    padding: 10px;
+    width: 35vw;
+    height: 5vh;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  div.search_box:hover {
+    box-shadow: 2px 2px 5px rgb(116, 113, 113);
+  }
+
+  .btn {
+    margin: 5px;
+    margin-top: 0.8rem;
+    padding: 8px;
+    width: 22vw;
+    height: 2.5rem;
+    border-radius: 5px;
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    font-size: 0.8rem;
+  }
+  .profile_btn {
+    padding: 8px;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    font-size: 0.5rem;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 550px) and (max-width: 700px) {
+  .navbar {
+    width: 100vw;
+    background-color: #e41d36;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+
+    flex-wrap: wrap;
+    height: 5.5rem;
+  }
+  .heading {
+    font-size: 1.7rem;
+    margin: 8px 2px 4px 8px;
+  }
+  .icon {
+    width: 10vw;
+    height: 5vh;
+    background: rgb(121, 119, 119);
+
+    border: none;
+    outline: none;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .search_box {
+    margin: auto;
+    margin-left: 10px;
+
+    width: 45vw;
+    height: 5vh;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+  }
+
+  .flex_box {
+    display: flex; /* float: right; */
+    margin-left: auto;
+  }
+
+  .btn {
+    margin: 7px;
+    padding: 8px;
+    width: 16vw;
+    margin-top: 0.8rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    font-size: 0.9rem;
+  }
+  .profile_btn {
+    margin: 7px;
+    padding: 8px;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    font-size: 0.6rem;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 970px) {
+  .navbar {
+    min-width: 100vw;
+    background-color: #e41d36;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    max-width: 100rem;
+    flex-wrap: wrap;
+    height: 5rem;
+  }
+
+  .heading {
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(228, 224, 224);
+    margin: 8px 2px 4px 8px;
+  }
+  .flex_box {
+    display: flex; /* float: right; */
+    margin-left: auto;
+  }
+
+  .btn {
+    margin: 7px;
+    margin-top: 1rem;
+    padding: 8px;
+    width: 10vw;
+    height: 2.8rem;
+    border-radius: 5px;
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    font-size: 1rem;
+  }
+
+  .profile_btn {
+    margin: 7px;
+    margin-right: 4rem;
+    padding: 8px;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    font-size: 0.7rem;
+    cursor: pointer;
+  }
+  .name {
+    color: #e41d36;
+    /* margin-left: 2rem; */
+    font-size: 0.8rem;
+  }
+  button.btn:hover {
+    background-color: rgb(221, 214, 214);
+    color: white;
+    cursor: pointer;
+  }
+}
+@media screen and (min-width: 970px) and (max-width: 1450px) {
+  .navbar {
+    min-width: 100vw;
+    background-color: #e41d36;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    max-width: 100rem;
+    flex-wrap: wrap;
+    height: 5rem;
+  }
+
+  .heading {
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(228, 224, 224);
+    margin: 8px 2px 4px 8px;
+  }
+  .flex_box {
+    display: flex; /* float: right; */
+    margin-left: auto;
+  }
+
+  .btn {
+    margin: 7px;
+    margin-top: 1rem;
+    padding: 8px;
+    width: 8vw;
+    height: 2.8rem;
+    border-radius: 5px;
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    font-size: 1rem;
+  }
+
+  .profile_btn {
+    margin: 7px;
+    margin-right: 4rem;
+    padding: 8px;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    color: #e41d36;
+    border: 1px solid #e41d36;
+    font-size: 0.7rem;
+    cursor: pointer;
+  }
+  .name {
+    color: #e41d36;
+    /* margin-left: 2rem; */
+    font-size: 0.8rem;
+  }
+  button.btn:hover {
+    background-color: rgb(221, 214, 214);
+    color: white;
+    cursor: pointer;
+  }
+}

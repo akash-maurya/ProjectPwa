@@ -1,0 +1,321 @@
+
+
+
+.outer_layer{
+    background-color: rgba(32, 31, 31, 0.7);
+    /* z-index: 8; */
+    top :0;
+    bottom:  0;
+    left: 0;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+   
+    width: 100vw;
+    height: 100vh;
+}
+
+.container{
+    background-image: url('../public/pexels-becerra-govea-photo-5774154.jpg');
+   
+    top : 0;
+    position: fixed;
+    margin-left: 60%;
+    width: 60vw;
+    height: 100vh;
+    background-size: cover;
+    z-index : 10;
+  
+    box-shadow: 2px 2px 4px 1px rgb(53, 52, 52);
+    
+
+}
+.layer {
+    background-color: rgba(32, 31, 31, 0.7);
+    position: relative;
+    top : 0 ;
+    left: 0;
+    /* right: 0; */
+    width: 100%;
+    height: 100%;
+}
+.toggleButton{
+    position: absolute;
+    margin-left: 19vw;
+    width: 7rem;
+    height: 5vh;
+    font-size: 2.5rem;
+    background: none;
+    color: white;
+    border: none;
+    margin:  1.5rem;;
+    margin-left: 45%;
+    font-weight: 100;
+}
+.container button{
+    cursor: pointer;
+}
+#specialButton{
+    width: 22rem;
+    border: 1px solid green;
+    border-radius: 3px;
+    padding: 0.7rem;
+    background-color:rgb(171, 192, 171);
+    color: green;
+    font-size: 1.2rem;
+    box-shadow: 1px 2px 4px 1px rgb(107, 104, 104); 
+    /* border: none; */
+}
+#invalid{
+    width: 22rem;
+    border: 1px solid rgb(240, 8, 8);
+    border-radius: 3px;
+    padding: 0.7rem;
+    background-color:rgb(231, 182, 182);
+    color: rgb(238, 35, 9);
+    font-size: 1.2rem;
+    box-shadow: 1px 2px 4px 1px rgb(107, 104, 104); 
+}
+
+.flexbox{
+    display: flex ;
+    /* justify-content: center;
+    align-items: center; */
+}
+.login_box{
+    position: fixed;
+    margin-top: 15vh;   
+    height: 68.4vh; 
+    width: 30vw;
+    margin-left: 5vw;
+    margin-right: 15vw;
+    background-color: rgb(238, 235, 235);
+    color: rgb(12, 12, 12);
+    border-radius: 15px 15px 10px 10px;
+    /* box-shadow: inset 5px 5px 10px #000000,inset -5px -5px 10px rgb(31, 31, 32); ; */
+    box-shadow: 2px 2px 10px 10px rgb(44, 43, 43);
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.form input{
+   
+    margin-top: 2rem;
+    width: 22rem;
+    border : none;
+    background: transparent;
+    outline: none;
+    /* text-decoration: underline; */
+    border-bottom: 1px solid rgb(19, 18, 18); 
+    color: rgb(26, 25, 25); 
+    font-size: 1.3rem; 
+    /* box-shadow: 2px 2px 2px 2px rgb(201, 46, 46); */
+}
+
+.animate{
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-top: 20%;
+}
+
+.logo{
+    display: flex;
+    justify-content: space-between;
+    width: 15rem;
+    /* height: 13rem; */
+
+}
+
+.form button{
+    margin-top: 2rem;
+    width: 22rem;
+    border-radius: 3px;
+    padding: 0.7rem;
+    background-color: #e41d36;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 1px 2px 4px 1px rgb(107, 104, 104); 
+    border: none;
+}
+.form button :hover{
+  cursor: pointer;
+  margin-top: 2rem;
+    width: 22rem;
+    border-radius: 3px;
+    padding: 0.7rem;
+    background-color: #e41d36;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 1px 2px 4px 1px rgb(107, 104, 104); 
+    border: none;
+}
+
+.form button{
+    width: 22rem;
+    border-radius: 3px;
+    padding: 0.7rem;
+    background-color: #e41d36;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 1px 2px 4px 1px rgb(107, 104, 104); 
+    border: none;
+}
+
+ @media screen and (max-width : 710px){
+
+    .container{
+    margin: 0;
+    padding: 0;
+    background-image: url('../public/pexels-becerra-govea-photo-5774154.jpg');
+    top : 0;
+    position: fixed;
+    /* margin-left: 60%; */
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    z-index : 10;
+    box-shadow: 2px 2px 4px 1px rgb(53, 52, 52);
+    }
+
+.login_box{
+    position: fixed;
+    margin-top: 25vh;   
+    height: 58.4vh; 
+    width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    background-color: rgb(238, 235, 235);
+    color: rgb(12, 12, 12);
+    border-radius: 15px 15px 10px 10px;
+    /* box-shadow: inset 5px 5px 10px #000000,inset -5px -5px 10px rgb(31, 31, 32); ; */
+    box-shadow: 2px 2px 10px 10px rgb(44, 43, 43);
+}
+
+#specialButton{
+    width: 12rem;
+    font-size: 0.8rem;
+    padding: 0.2rem;
+}
+#invalid{
+     width: 12rem;
+    font-size: 0.8rem;
+    padding: 0.2rem;
+}
+
+.toggleButton{
+    margin-left: 75%;
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+    .form{
+        font-size: 0.8rem;
+    }
+     .form button{
+    margin-top: 2rem;
+    width: 13rem;
+    border-radius: 3px;
+    padding: 0.7rem;
+    background-color: #e41d36;
+    color: white;
+    font-size: 0.8rem;
+    box-shadow: 1px 2px 4px 1px rgb(107, 104, 104); 
+    border: none;
+     }
+
+.form input{
+   
+    width: 13rem;
+    border : none;
+    background: transparent;
+    outline: none;
+    /* text-decoration: underline; */
+    border-bottom: 1px solid rgb(19, 18, 18); 
+    color: rgb(26, 25, 25); 
+    font-size: 1rem; 
+    /* box-shadow: 2px 2px 2px 2px rgb(201, 46, 46); */
+}
+
+.animate{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 20%;
+}
+
+
+.logo{
+    width: 8rem;
+}
+
+ }
+
+
+@media screen and (min-width : 711px ) and (max-width : 1200px) {
+    .container{
+        background-image: url('../public/pexels-becerra-govea-photo-5774154.jpg');
+   
+    top : 0;
+    position: fixed;
+    margin-left: 55%;
+    width: 67vw;
+    height: 100vh;
+    background-size: cover;
+    z-index : 10;
+  
+    box-shadow: 2px 2px 4px 1px rgb(53,  52, 52);
+    }
+
+   .login_box{
+    position: fixed;
+    margin-top: 28vh;   
+    height: 55.4vh; 
+    width: 35vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    background-color: rgb(238, 235, 235);
+    color: rgb(12, 12, 12);
+    border-radius: 15px 15px 10px 10px;
+    /* box-shadow: inset 5px 5px 10px #000000,inset -5px -5px 10px rgb(31, 31, 32); ; */
+    box-shadow: 2px 2px 10px 10px rgb(44, 43, 43);
+}
+
+#specialButton{
+    width: 16rem;
+    font-size: 1rem;
+    padding: 0.7rem;
+}
+#invalid{
+ width: 12rem;
+    font-size: 0.8rem;
+    padding: 0.2rem;
+}
+.form input{
+   
+    margin-top: 2rem;
+    width: 16.5rem;
+    border : none;
+    background: transparent;
+    outline: none;
+    /* text-decoration: underline; */
+    border-bottom: 1px solid rgb(19, 18, 18); 
+    color: rgb(26, 25, 25); 
+    font-size: 1.5rem; 
+    /* box-shadow: 2px 2px 2px 2px rgb(201, 46, 46); */
+}
+
+.form button{
+    width: 16.5rem;
+    border-radius: 3px;
+    padding: 0.7rem;
+    background-color: #e41d36;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 1px 2px 4px 1px rgb(107, 104, 104); 
+    border: none;
+}
+}

@@ -1,0 +1,116 @@
+
+/* 
+.fallback_container{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
+
+.content{
+    margin-top: 8vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.nonetwork{
+    margin-top: 10rem;
+    margin-left: 47vw;
+    /* height: 3vh;
+    width: 10vw; */
+    font-size: 40rem;
+}
+
+.h1{
+    color: #e41d36;
+    font-size: 2rem;
+    margin: auto;
+}
+
+.para{
+    margin: 1rem;
+    font-size: 1.3rem;
+    color: #e41d36;
+}
+
+.refresh{
+    cursor: pointer;
+    width: 10rem;
+    height: 5vh;
+    margin-top: 2rem;
+    border: 1px solid #e41d36;
+    border-radius: 5px;
+    color: #e41d36;
+}
+
+
+
+@media screen  and (max-width : 550px){
+    
+.nonetwork{
+   margin-top: 16rem;
+   margin-left: 47vw;
+   height: 10vh;
+   width: 30vw;
+}
+
+.content{
+     margin-top: 5vh;
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.h1{
+    color: red;
+    margin: auto;
+    font-size: 1.3rem;
+}
+
+.para{
+    margin: 1rem;
+    font-size: 1rem;
+    color: rgb(196, 53, 53);
+}
+
+
+}
+
+
+@media screen  and (min-width : 550px) and (max-width : 1000px){
+    
+.nonetwork{
+   margin-top: 14rem;
+   margin-left: 47%;
+   margin-right: auto;
+   font-size: 40rem;
+   height: 8rem;
+   width: 8rem;
+}
+
+.content{
+     margin-top: 8vh;
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.h1{
+    color: red;
+    margin: auto;
+    font-size: 1.3rem;
+}
+
+.para{
+    margin: 1rem;
+    font-size: 1rem;
+    color: rgb(196, 53, 53);
+}
+}

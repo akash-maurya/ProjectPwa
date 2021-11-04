@@ -1,0 +1,429 @@
+.card_container{
+    height: 17rem;
+    width: 16.2rem;
+    margin: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgb(145, 142, 142);
+}
+
+.card_image{
+    position: relative;
+    height: 7rem ;
+    width: 16.18rem;
+    border-bottom: 1px solid black;
+}
+
+.text_container{
+    min-height: 8rem;
+    width: 16.2rem ;
+    color: black;
+    display: flex;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.text_container h2{
+    color: rgb(12, 11, 11);
+    font-size: 1.1rem;
+    margin: 0.5rem;
+    /* color:rgb(15, 15, 15); */
+}
+
+.text_container p{
+    font-size: 0.7rem;
+    margin: 0.5rem;
+}
+
+.priceAndbutton{
+    position: relative;
+    bottom: 0%;
+    margin: 0.8rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.price{
+    color: #e41d36;
+    font-size: 0.9rem;
+    margin: auto;
+}
+.button{
+    height: 1.7rem;
+    width: 5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    margin-left: 3rem;
+    border: 1px solid #e41d36;
+    background: white;
+    color: #e41d36;
+}
+
+.priceAndbutton button:hover{
+    color: white;
+    background-color: #e41d36;
+}
+
+@media screen and (min-width : 701px) and (max-width:900px) {
+  .card_container{
+    height: 17rem;
+    width: 26vw;
+    margin: 1.5rem;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 5px rgb(145 142 142);
+    box-shadow: 2px 2px 5px rgb(145 142 142);
+  }
+  
+
+  .card_image{
+    position: relative;
+    height: 7rem ;
+    width: 26vw;
+    border-bottom: 1px solid black;
+}
+
+
+.text_container{
+    height: 9rem;
+    width: 26vw ;
+    color: black;
+    display: flex;
+    align-items: center;
+    
+    flex-direction: column;
+}
+
+.text_container h2{
+    color: rgb(12, 11, 11);
+    font-size: 0.9rem;
+    margin: 0.5rem;
+
+}
+
+.text_container p{
+    font-size: 0.5rem;
+    margin: 0.5rem;
+}
+
+.priceAndbutton{
+  
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+
+.price{
+    color : green;
+    
+    font-size: 0.7rem;
+}
+
+.button{
+    height: 2rem;
+    width: 20vw;
+    border-radius: 3px;
+    
+    cursor: pointer;
+    font-size: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 0;
+    border: 1px solid #e41d36;
+    background: white;
+    color: #e41d36;
+}
+
+}
+
+@media  screen and (min-width :901px) and (max-width : 1200px)  {
+ .card_container{
+    min-height: 18rem;
+    max-height: 19rem;
+    width: 26vw;
+    margin: 1.5rem;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 2px 5px rgb(145 142 142);
+    box-shadow: 2px 2px 5px rgb(145 142 142);
+  }
+  
+
+  .card_image{
+    position: relative;
+    height: 7rem ;
+    width: 26vw;
+    border-bottom: 1px solid black;
+}
+
+
+.text_container{
+    min-height: 8rem;
+    width: 26vw ;
+    color: black;
+    display: flex;
+    align-items: center;
+    
+    flex-direction: column;
+}
+
+.text_container h2{
+    color: rgb(12, 11, 11);
+    font-size: 1rem;
+    margin: 0.5rem;
+
+}
+
+.text_container p{
+    font-size: 0.8rem;
+    margin: 0.5rem;
+}
+
+.priceAndbutton{
+  
+    bottom: 0;
+    /* margin: auto; */
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+
+.price{
+    color : green;
+    
+    font-size: 0.9rem;
+}
+
+.button{
+    height: 2rem;
+    width: 20vw;
+    border-radius: 3px;
+    
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    margin-left: 0;
+    border: 1px solid #e41d36;
+    background: white;
+    color: #e41d36;
+}
+
+}
+
+@media screen  and (max-width : 300px){
+.card_container{
+    height: 17rem;
+    width: 11rem;
+    margin: 0.8rem;
+    border-radius: 7px;
+    box-shadow: 2px 2px 5px rgb(145, 142, 142);
+}
+  .card_image{
+    position: relative;
+    height: 7rem ;
+    width: 11rem;
+    border-bottom: 1px solid black;
+}
+
+.text_container{
+    min-height: 9rem;
+    width: 11rem;
+    color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.text_container h2{
+    color: rgb(12, 11, 11);
+    font-size: 0.8rem;
+    margin: 0.2rem;
+    
+}
+
+.text_container p{
+    font-size: 0.6rem;
+    margin: 0.2rem;
+}
+.priceAndbutton{
+ 
+    bottom: 0%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+ 
+    justify-content: center;
+    align-items: center;
+}
+.price{
+    color : green;
+  
+    font-size: 0.65em;
+}
+.button{
+    height: 1.5rem;
+    min-width: 8rem;
+   
+    border-radius: 3px;
+    cursor: pointer;
+    font-size:  0.8rem;
+    margin-top: 0.5rem;
+    margin-left: 0;
+    border: 1px solid #e41d36;
+    background: white;
+    color: #e41d36;
+}
+
+}
+
+@media screen and (min-width :  300px) and (max-width : 540px) {
+  .card_container{
+    height: 16.5rem;
+    width: 42vw;
+    margin: 0.8rem;
+    border-radius: 7px;
+    box-shadow: 2px 2px 5px rgb(145, 142, 142);
+}
+  .card_image{
+    position: relative;
+    height: 7rem;
+    width: 42vw;
+    border-bottom: 1px solid black;
+}
+
+.text_container{
+    min-height: 9rem;
+    width: 42vw ;
+    color: black;
+    display: flex;
+    align-items: center;
+   
+    flex-direction: column;
+}
+
+
+.text_container h2{
+    color: rgb(12, 11, 11);
+    font-size: 0.8rem;
+    margin: 0.2rem;
+    
+}
+
+.text_container p{
+    font-size: 0.6rem;
+    margin: 0.2rem;
+}
+.priceAndbutton{
+ 
+    bottom: 0%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+ 
+    justify-content: center;
+    align-items: center;
+}
+.price{
+    color : rgb(64, 158, 64);
+  
+    font-size: 0.7em;
+}
+.button{
+    height: 1.5rem;
+    width: 35vw;
+   
+    border-radius: 3px;
+    cursor: pointer;
+    font-size:  0.7rem;
+    margin-top: 0.5rem;
+    margin-left: 0;
+    border: 1px solid #e41d36;
+    background: white;
+    color: #e41d36;
+}
+
+
+}
+
+@media screen and (min-width : 541px ) and (max-width:700px) {
+ .card_container{
+    height: 17rem;
+    width: 35vw;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 7px;
+    box-shadow: 2px 2px 5px rgb(145, 142, 142);
+  }
+
+  .card_image{
+    position: relative;
+    height: 7rem ;
+    width: 35vw;
+    border-bottom: 1px solid black;
+}
+
+
+.text_container{
+    min-height: 9rem;
+    width: 35vw ;
+    color: black;
+    display: flex;
+    align-items: center;
+    
+    flex-direction: column;
+}
+
+.text_container h2{
+    color: rgb(12, 11, 11);
+    font-size: 1rem;
+    margin: 0.5rem;
+
+}
+
+.text_container p{
+    font-size: 0.7rem;
+    margin: 0.5rem;
+}
+
+.priceAndbutton{
+  
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+
+.price{
+    color : green;
+    /* margin: auto; */
+    /* margin-left: 0; */
+    font-size: 0.65em;
+}
+.button{
+    height: 1.5rem;
+    width: 23vw;
+    border-radius: 3px;
+    
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+     margin-left: 0;
+    border: 1px solid #e41d36;
+    background: white;
+    color: #e41d36;
+}
+
+}

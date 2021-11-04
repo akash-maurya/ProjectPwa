@@ -1,0 +1,636 @@
+.back_arrow{
+   position: fixed;
+    width: 2rem;
+    height: 1.5rem;
+    margin-top: 1rem;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: auto;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.dec_button{
+     width: 22px;
+     height: 22px;
+     margin: 5px;
+     border: none;
+     color: red;
+     font-size: 1rem;
+     font-weight: 600;
+}
+.inc_button{
+     width: 22px;
+     height: 22px;
+     border: none;
+     color: red;
+     font-size: 1rem;
+     font-weight: 600;
+}
+
+.empty_cart{
+
+    width: 25rem;
+    height: 12.5rem;
+    border: 1px solid;
+    border: 1px solid #e41d36;
+    background-color: white;
+    color: #e41d36;
+    border-radius: 7px;
+    font-size: 2rem;
+    margin-left: 32%;
+    margin-top: 10%;
+}
+   
+
+.quantity{
+  font-size: 0.8rem;
+  margin: 0.2rem;
+}
+
+.header{
+    margin: 0;
+    top:0;
+    position: fixed;
+    width: 104vw;
+    height: 5rem;
+    background-color: #e41d36;
+    box-shadow: 2px 2px 5px rgb(88, 87, 87);
+    display: inline-block;
+    z-index: 10;
+}
+
+.header p{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: auto;
+    text-align: center;
+    color: rgb(253, 253, 253);
+}
+
+.product_container{
+   width: 50vw;
+   height: 4rem;
+   margin: 2rem;
+   box-shadow: 2px 2px 5px rgb(122, 120, 120);
+   display: flex;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+     
+}
+
+.product_container h2{
+    font-size: 1rem;
+    font-weight: 600;
+    margin: auto;
+}
+.product_container p{
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: auto;
+}
+.product_container span{
+    color: rgb(12, 43, 129);
+}
+.item_container{
+    width: 60vw;
+    margin: auto;
+    margin-top: 8rem;
+}
+.footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 10vh;
+    background-color: rgb(178, 186, 212);
+
+}
+.button{
+    margin-top: 4rem;
+    right: 0;
+    height: 5vh;
+    width: 10vw;
+    border-radius: 5px;
+    background-color: slategray;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+    border:none;
+   
+}
+.delete{
+    border :none ;
+    background :none;
+    cursor: pointer;
+    margin:auto ;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(12, 43, 129);
+    transition: .5s ease all;
+}
+.popup{
+    display: flex;
+    margin: 0;
+}
+.home{
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+   
+}
+
+.chekout_container{
+     width: 60vw;
+     margin: auto;
+     margin-top: auto;
+     background-color: white;
+     bottom: 0;
+     position: sticky;
+     
+}
+.checkout_footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 3.5rem;
+    margin: 2rem;
+    margin-top: 100vh;
+    box-shadow: 2px 2px 5px rgb(122, 120, 120);
+    display: flex;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 2px rgb(138, 136, 136);
+}
+.cost{
+
+    width: 25vw;
+    height: 3.5rem;
+    text-align: center;
+}
+.checkout_footer h2{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+.checkout_button{
+    
+    border-radius: 5px;
+    color: white;
+    background: #e41d36;
+    border: none;
+    width: 25vw;
+    height: 3.5rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+@keyframes slide-in {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+@keyframes slide-out {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@media screen and (max-width : 360px) {
+    
+.header{
+    margin: 0;
+    width: 50rem;
+    height: 5rem;
+    background-color: #e41d36;
+    box-shadow: 2px 2px 5px rgb(88, 87, 87);
+    display: inline-block;
+}
+
+.header p{
+    font-size: 0.8rem;
+    margin: auto;
+    font-weight: bold;
+     float: left;
+    margin-top: 1rem;
+    margin-left: 8rem;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+.home{
+    position: relative;
+    text-decoration: none;
+    font-size: 1rem;
+     margin: 1.8rem ;
+ }
+ .empty_cart{
+
+    width: 18rem;
+    height: 8rem;
+    border: 1px solid;
+    border: 1px solid #e41d36;
+    background-color: white;
+    color: #e41d36;
+    border-radius: 7px;
+    font-size: 1.5rem;
+    margin-left: 18%;
+    margin-top: 10%;
+}
+ .button{
+
+    margin-left: 0;
+    margin-top: 1.4rem;
+    height: 5vh;
+    width: 20vw;
+    border-radius: 5px;
+    background-color: slategray;
+    font-size: 0.8rem;
+    color: white;
+    cursor: pointer;
+    border:none;
+    
+}
+.countAndPricing p{
+    font-size: 0.9rem;
+    font-weight:lighter;
+}
+
+.delete{
+    border :none ;
+    cursor: pointer;
+    background: none;
+    margin:auto ;
+    font-size: 0.6rem;
+    font-weight: bold;
+    color: rgb(12, 43, 129);
+}
+.item_container{
+
+    width: 80vw;
+    margin: auto;
+    margin-left: 2rem;
+    margin-top: 7rem;
+}
+
+.product_container{
+   width: 20rem;
+   height: 2.8rem;
+   margin: 1rem;
+   box-shadow: 2px 2px 5px rgb(122, 120, 120);
+   display: flex;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   border-radius: 5px;
+}
+
+.product_container h2{
+    font-size: 0.6rem;
+    font-weight: 600;
+    margin: auto;
+}
+.product_container p{
+    font-size: 0.5rem;
+    font-weight: 600;
+    margin: auto;
+}
+
+.chekout_container{
+     width: 80vw;
+     margin: auto;
+     margin-top: 40vh;
+     background-color: white;
+     bottom: 0;
+     position: sticky;
+    
+}
+.checkout_footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 3rem;
+    margin: 1rem;
+    margin-top: 50rem;
+    box-shadow: 2px 2px 5px rgb(122, 120, 120);
+    display: flex;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 2px rgb(138, 136, 136);
+}
+.cost{
+
+    width: 40vw;
+    height: 3rem;
+    text-align: center;
+}
+
+.checkout_footer h2{
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+.checkout_button{
+  
+    border-radius: 5px;
+    color: white;
+    background:#e41d36;
+    border: none;
+    width: 40vw;
+    height: 3rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
+}
+
+
+@media screen and (min-width : 361px ) and (max-width :  550px) {
+        
+.header{
+    margin: 0;
+    width: 130%;
+    height: 5rem;
+    background-color: #e41d36;
+    box-shadow: 2px 2px 5px rgb(88, 87, 87);
+    display: inline-block;
+}
+
+.header p{
+    font-size: 0.8rem;
+    margin: auto;
+    font-weight: bold;
+     float: left;
+    margin-top: 1rem;
+    margin-left: 8rem;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+.home{
+    position: relative;
+    text-decoration: none;
+    font-size: 1rem;
+     margin: 1.8rem ;
+ }
+ .empty_cart{
+
+    width: 18rem;
+    height: 8rem;
+    border: 1px solid;
+    border: 1px solid #e41d36;
+    background-color: white;
+    color: #e41d36;
+    border-radius: 7px;
+    font-size: 1.5rem;
+    margin-left: 18%;
+    margin-top: 10%;
+}
+ .button{
+
+    margin-left: 0;
+    margin-top: 1.4rem;
+    height: 5vh;
+    width: 20vw;
+    border-radius: 5px;
+    background-color: slategray;
+    font-size: 0.8rem;
+    color: white;
+    cursor: pointer;
+    border:none;
+    /* box-shadow: 1px 2px 5px rgb(11, 11, 212); */
+}
+.countAndPricing p{
+    font-size: 0.9rem;
+    font-weight:lighter;
+}
+
+.delete{
+    border :none ;
+    cursor: pointer;
+    background: none;
+    margin:auto ;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: rgb(12, 43, 129);
+}
+.item_container{
+
+    width: 85vw;
+    margin: auto;
+    margin-left: 2rem;
+    margin-top: 7rem;
+}
+
+.product_container{
+   width: 80vw;
+   height: 2.8rem;
+   margin: 1rem;
+   box-shadow: 2px 2px 5px rgb(122, 120, 120);
+   display: flex;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   border-radius: 5px;
+}
+
+.product_container h2{
+    font-size: 0.65rem;
+    font-weight: 500;
+    margin: auto;
+}
+.product_container p{
+    font-size: 0.6rem;
+    font-weight: 500;
+    margin: auto;
+}
+
+.chekout_container{
+     width: 80vw;
+     margin: auto;
+     margin-top: 40vh;
+     background-color: white;
+     bottom: 0;
+     position: sticky;
+    
+}
+.checkout_footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 3rem;
+    margin: 1rem;
+    margin-top: 50rem;
+    box-shadow: 2px 2px 5px rgb(122, 120, 120);
+    display: flex;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 2px rgb(138, 136, 136);
+}
+.cost{
+
+    width: 40vw;
+    height: 3rem;
+    text-align: center;
+}
+
+.checkout_footer h2{
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+.checkout_button{
+  
+    border-radius: 5px;
+    color: white;
+    background:#e41d36;
+    border: none;
+    width: 40vw;
+    height: 3rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+}
+
+@media screen  and (min-width : 550px ) and (max-width : 1000px){
+  
+.header p{
+    font-size: 1.4rem;
+    margin: auto;
+    font-weight: bold;
+    margin: 2rem;
+  
+    text-align: center;
+    color: white;
+}
+.home{
+    position: relative;
+    text-decoration: none;
+    font-size: 1.5rem;
+     margin: 1.8rem ;
+ }
+ .empty_cart{
+
+    width: 22rem;
+    height: 10rem;
+    border: 1px solid;
+    border: 1px solid #e41d36;
+    background-color: white;
+    color: #e41d36;
+    border-radius: 7px;
+    font-size: 1.5rem;
+    margin-left: 22%;
+    margin-top: 12%;
+}
+ .button{
+    
+    margin-left: 0;
+    margin-top: 2rem;
+    height: 5vh;
+    width: 20vw;
+    border-radius: 5px;
+    background-color: slategray;
+    font-size: 0.8rem;
+    color: white;
+    cursor: pointer;
+    border:none;
+   
+}
+.countAndPricing p{
+    font-size: 1.4rem;
+    font-weight:lighter;
+}
+
+.delete{
+    border :none ;
+    cursor: pointer;
+    background: none;
+    margin:auto ;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(12, 43, 129);
+}
+
+.item_container{
+    width: 80vw;
+    margin: auto;
+    margin-top: 7.5rem;
+}
+
+.product_container{
+   width: 75vw;
+   height: 3.5rem;
+   margin: 2rem;
+   box-shadow: 2px 2px 5px rgb(122, 120, 120);
+   display: flex;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+}
+
+.product_container h2{
+    font-size: 1rem;
+    font-weight: 400;
+    margin: auto;
+}
+.product_container p{
+    font-size: 1rem;
+    font-weight: 400;
+    margin: auto;
+}
+
+.chekout_container{
+     width: 75vw;
+     margin: auto;
+     margin-top: 72vh;
+     background-color: white;
+     bottom: 0;
+     position: sticky;
+     /* border: 1px solid rgb(8, 8, 8); */
+     /* box-shadow: 1px 1px 5px 5px rgb(138, 136, 136); */
+}
+.checkout_footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: 3rem;
+    margin: 2rem;
+   
+    margin-top: auto;
+    box-shadow: 2px 2px 5px rgb(122, 120, 120);
+    display: flex;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 2px rgb(138, 136, 136);
+}
+
+.cost{
+
+    width: 35vw;
+    height: 3rem;
+    text-align: center;
+}
+
+.checkout_footer h2{
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+.checkout_button{
+    /* position: relative; */
+    border-radius: 5px;
+    color: white;
+    background:#e41d36;
+    border: none;
+    width: 35vw;
+    height: 3rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+}

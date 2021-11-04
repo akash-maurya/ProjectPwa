@@ -1,0 +1,60 @@
+.container_pop{
+    z-index: 23;
+    position: fixed;
+    margin-left: 80%;
+    height: 5vh;
+    width: 20vw;
+    border: 1px solid rgb(8, 70, 16);
+    background-color: rgb(185, 230, 191);
+    color: rgb(5, 75, 11);
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.container_pop p{
+    font-size: 1.3rem;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+}
+
+@media screen and (max-width : 550px ){
+    .container_pop{
+    position: fixed;
+    margin-left: 80%;
+    height: 5vh;
+    width: 50vw;
+    border: 1px solid green;
+    background-color: rgb(178, 228, 178);
+    color: rgb(1, 95, 1);
+    border-radius: 5px;
+    margin: auto ;
+    margin-top: 1rem;
+    }
+    .container_pop p{
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    }
+
+}
+
+@media screen  and (min-width : 500px ) and (max-width:1000px ){
+    .container_pop{
+    position: fixed;
+    margin-left: 80%;
+    height: 5vh;
+    width: 30vw;
+    border: 1px solid green;
+    background-color: rgb(178, 228, 178);
+    color: rgb(1, 95, 1);
+    border-radius: 5px;
+    margin: auto ;
+    margin-top: 1rem;
+    }
+
+    .container_pop p{
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    }
+}

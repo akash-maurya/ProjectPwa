@@ -1,0 +1,23 @@
+{
+    "name" : "Licious Lite",
+    "short_name" : "Licious Lite",
+    "icons" :[
+        {
+            "src" : "/icon/Lapha.png",
+            "type": "image/png",
+            "sizes" :"256x256"
+        },
+        {
+          "src": "/icon/512x512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+    ],
+    "start_url":"/",
+    "scope":".",
+    "display":"standalone",
+    "orientation":"portrait-primary",
+    "background-color":"#FFF",
+    "theme_color":  "#FFF",
+    "description":"Lite verison of licious"
+}
