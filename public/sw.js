@@ -131,6 +131,8 @@ self.addEventListener("fetch", function (event) {
           return caches.open("dynamic").then(function (cache) {
             
             if (
+               event.request.url === 
+              "https://licious-lite.herokuapp.com/api/items/getItems"||  
              event.request.url ===
                "https://licious-lite.herokuapp.com/api/Cart/getCartItems" ||
              event.request.url ===
@@ -146,7 +148,8 @@ self.addEventListener("fetch", function (event) {
              event.request.url ===
                "https://licious-lite.herokuapp.com/api/Cart/updateOrder/dec" ||
              event.request.url ===
-               "https://licious-lite.herokuapp.com/api/Cart/updateOrder/inc"
+               "https://licious-lite.herokuapp.com/api/Cart/updateOrder/inc" 
+            
            ) {
             //  console.log( event.request.url + " called");
            } else {
