@@ -113,7 +113,7 @@ function TransitionLeft(props) {
       <div>
         <Script src="https://use.fontawesome.com/bff91f34a4.js"></Script>
 
-        {console.log("----" + totoalItem)}
+       
         <Header cartItem={totoalItem}  isoffline = {nonetwork} isloading = {load}/>
       </div>
 
