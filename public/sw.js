@@ -129,7 +129,30 @@ self.addEventListener("fetch", function (event) {
       } else {
         return fetch(event.request).then(function (res) {
           return caches.open("dynamic").then(function (cache) {
-            cache.put(event.request.url, res.clone());
+            
+            if (
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/Cart/getCartItems" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/update/updateDetails" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/auth/login/verify" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/auth/login/sendOTP" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/update/getdetails" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/Cart/deleteItem" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/Cart/updateOrder/dec" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/Cart/updateOrder/inc"
+           ) {
+            //  console.log( event.request.url + " called");
+           } else {
+             cache.put(event.request.url, res.clone());
+           }
+                
             return res;
           });
         });
