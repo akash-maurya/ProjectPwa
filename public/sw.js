@@ -121,48 +121,48 @@ define("./sw.js", ["./workbox-1ffba242"], function (workbox) {
 //# sourceMappingURL=sw.js.map
 
 
-// self.addEventListener("fetch", function (event) {
-//   event.respondWith(
-//     caches.match(event.request).then(function (response) {
-//       if (response) {
-//         return response;
-//       } else {
-//         return fetch(event.request).then(function (res) {
-//           return caches.open("dynamic").then(function (cache) {
+self.addEventListener("fetch", function (event) {
+  event.respondWith(
+    caches.match(event.request).then(function (response) {
+      if (response) {
+        return response;
+      } else {
+        return fetch(event.request).then(function (res) {
+          return caches.open("dynamic").then(function (cache) {
             
-//             if (
-//                event.request.url === 
-//               "https://licious-lite.herokuapp.com/api/items/getItems"||  
-//              event.request.url ===
-//                "https://licious-lite.herokuapp.com/api/Cart/getCartItems" ||
-//              event.request.url ===
-//                "https://licious-lite.herokuapp.com/api/update/updateDetails" ||
-//              event.request.url ===
-//                "https://licious-lite.herokuapp.com/api/auth/login/verify" ||
-//              event.request.url ===
-//                "https://licious-lite.herokuapp.com/api/auth/login/sendOTP" ||
-//              event.request.url ===
-//                "https://licious-lite.herokuapp.com/api/update/getdetails" ||
-//              event.request.url ===
-//                "https://licious-lite.herokuapp.com/api/Cart/deleteItem" ||
-//              event.request.url ===
-//                "https://licious-lite.herokuapp.com/api/Cart/updateOrder/dec" ||
-//              event.request.url ===
-//                "https://licious-lite.herokuapp.com/api/Cart/updateOrder/inc" 
+            if (
+               event.request.url === 
+              "https://licious-lite.herokuapp.com/api/items/getItems"||  
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/Cart/getCartItems" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/update/updateDetails" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/auth/login/verify" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/auth/login/sendOTP" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/update/getdetails" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/Cart/deleteItem" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/Cart/updateOrder/dec" ||
+             event.request.url ===
+               "https://licious-lite.herokuapp.com/api/Cart/updateOrder/inc" 
             
-//            ) {
-//             //  console.log( event.request.url + " called");
-//            } else {
-//              cache.put(event.request.url, res.clone());
-//            }
+           ) {
+            //  console.log( event.request.url + " called");
+           } else {
+             cache.put(event.request.url, res.clone());
+           }
                 
-//             return res;
-//           });
-//         });
-//       }
-//     })
-//   );
-// });
+            return res;
+          });
+        });
+      }
+    })
+  );
+});
 
 self.addEventListener("sync", function (event) {
   console.log("  [Service Worker] Background Syncing  :)" + event);
