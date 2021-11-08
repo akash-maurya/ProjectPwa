@@ -50,10 +50,7 @@ const handleDelete = () => {
     }
   };
 
-  function TransitionLeft(props) {
-    return <Slide {...props} direction="left" />;
-  }
-
+  
   const dec_item = ()=>{
 
        
