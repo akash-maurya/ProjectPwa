@@ -2,26 +2,19 @@ import style from "../styles/cart.module.css";
 import Cookies from "universal-cookie";
 import axios from "axios";
 import React , {useState} from 'react' ;
-import Snackbar from "@mui/material/Snackbar";
-import Alert from "@mui/material/Alert";
-import Slide from "@mui/material/Slide";
+
 
 const Item_bar = (props) => {
 
-
-
 const cookies = new Cookies();
 const [hide , setHide] = useState(false) ;
-const [show ,setshow] =  useState(false);
+
 const [quant ,setquant] = useState(props.quantity);
 const [price , setprice] = useState(props.amount);
 
 let hidden  = false ;
 
-const customcss = {
-  display : "none" ,
-  transition: "all 10s ease-out"
-}
+
 
 const handleDelete = () => {
  
@@ -41,15 +34,13 @@ const handleDelete = () => {
           headers: header,
         })
         .then((response) => {
-          setshow(true);
+          setHide(true);
           hidden = true ;
           console.log(hidden);
-          setHide( true );
+          props.handle_snack();
           props.decrease_cost(props.amount*quant);
           console.log("item deleted successfully");
-          setTimeout(() => {
-            setshow(false);
-          }, 1000);
+          
           return true;
         })
         .catch((err) => {
@@ -152,22 +143,7 @@ const handleDelete = () => {
 
   return (
     <>
-      <Snackbar
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
-        TransitionComponent={TransitionLeft}
-        open={show}
-        autoHideDuration={1000}
-      >
-        <Alert
-          severity="success"
-          sx={{ width: "100%", bgcolor: "rgb(64, 158, 64)", color: "white" }}
-        >
-          Item deleted successfully
-        </Alert>
-      </Snackbar>
+  
 
       <div
         style={

@@ -106,7 +106,7 @@ const ItemBox = (props)=>{
 
     return (
       <>
-        {!items.length && proceed && (
+        { !showfallback && !items.length && proceed && (
           <CircularProgress
             sx={{
               marginTop: "7rem",

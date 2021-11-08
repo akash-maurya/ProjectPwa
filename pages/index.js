@@ -2,7 +2,6 @@ import CardItem from '../components/Card_item';
 import Script from 'next/script';
 import style from '../styles/Home.module.css';
 import Header from './header';
-import Loader from '../components/loader';
 import axios from 'axios';
 import Fallback from '../components/fallback';
 import Cookies from "universal-cookie";
@@ -117,27 +116,27 @@ function TransitionLeft(props) {
         <Header cartItem={totoalItem}  isoffline = {nonetwork} isloading = {load}/>
       </div>
 
-      <Snackbar
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "center",
+   { showPopup&&  <Snackbar
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "center",
+      }}
+      TransitionComponent={TransitionLeft}
+      open={showPopup}
+      autoHideDuration={2500}
+    >
+      <Alert
+        severity="success"
+        sx={{
+          // width: "100%",
+          marginTop: "4rem",
+          bgcolor: "rgb(64, 158, 64)",
+          color: "white",
         }}
-        TransitionComponent={TransitionLeft}
-        open={showPopup}
-        autoHideDuration={2500}
       >
-        <Alert
-          severity="success"
-          sx={{
-            // width: "100%",
-            marginTop: "4rem",
-            bgcolor: "rgb(64, 158, 64)",
-            color: "white",
-          }}
-        >
-          Item added successfully
-        </Alert>
-      </Snackbar>
+        Item added successfully
+      </Alert>
+    </Snackbar>}
 
       {!nonetwork && (
         <div className={style.create_box}>

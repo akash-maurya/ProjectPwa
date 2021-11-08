@@ -6,7 +6,9 @@ import ItemBar from '../../components/itemBar';
 import React , {useState , useEffect} from 'react';
 import Link from 'next/link';
 import Fallback from '../../components/fallback';
-
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+import Slide from "@mui/material/Slide";
 import CircularProgress from "@mui/material/CircularProgress";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,6 +23,20 @@ const Cart = ()=>{
   const [numberOfitem ,setNumItems] = useState(0);
   const [isloading , setloading] = useState(true);
   const [nonetwork ,setnonetwork] = useState(false);
+  const [show , setshow] = useState(false);
+
+
+
+  const handle_snackbar = ()=>{
+
+      setshow(true);
+
+      setTimeout(() => {
+        setshow(false);
+      }, 1000);
+  }
+
+
   async function getcartItems() {
  
 
@@ -82,6 +98,11 @@ const inc_cost =(amount)=>{
   })
 }
 
+function TransitionLeft(props) {
+  return <Slide {...props} direction="left" />;
+}
+
+
 const CheckoutBar = (props)=>{
 
   return (
@@ -131,6 +152,30 @@ const CheckoutBar = (props)=>{
         />
       )}
 
+      {show && (
+        <Snackbar
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+          TransitionComponent={TransitionLeft}
+          open={show}
+          autoHideDuration={1000}
+        >
+          <Alert
+            severity="success"
+            sx={{
+              width: "100%",
+              marginTop: "5rem",
+              bgcolor: "rgb(64, 158, 64)",
+              color: "white",
+            }}
+          >
+            Item deleted successfully
+          </Alert>
+        </Snackbar>
+      )}
+
       {!nonetwork && !isloading && (
         <div className={style.item_container}>
           {items.map((item) => {
@@ -141,6 +186,7 @@ const CheckoutBar = (props)=>{
                 increase_cost={inc_cost}
                 decrease_cost={dec_cost}
                 active_load={toggle_load}
+                handle_snack = {handle_snackbar}
                 quantity={item.quantity}
                 itemId={item._id}
                 name={item.name}
@@ -151,10 +197,11 @@ const CheckoutBar = (props)=>{
           })}
         </div>
       )}
-      {!nonetwork && !cost && !isloading && 
-        <div><button className={style.empty_cart}>Your Cart is Empty</button></div>
-
-      }
+      {!nonetwork && !cost && !isloading && (
+        <div>
+          <button className={style.empty_cart}>Your Cart is Empty</button>
+        </div>
+      )}
       {cost && !nonetwork && <CheckoutBar total={cost} />}
 
       {nonetwork && <Fallback />}

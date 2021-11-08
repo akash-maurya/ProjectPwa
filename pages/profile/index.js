@@ -219,29 +219,29 @@ const Profile = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <Snackbar
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "center",
+    {showUpdate && <Snackbar
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "center",
+      }}
+      TransitionComponent={TransitionLeft}
+      open={showUpdate}
+      autoHideDuration={2000}
+    >
+      <Alert
+        severity="success"
+        sx={{
+          width: "100%",
+          marginTop: "4rem",
+          bgcolor: "rgb(64, 158, 64)",
+          color: "white",
         }}
-        TransitionComponent={TransitionLeft}
-        open={showUpdate}
-        autoHideDuration={2000}
       >
-        <Alert
-          severity="success"
-          sx={{
-            width: "100%",
-            marginTop: "4rem",
-            bgcolor: "rgb(64, 158, 64)",
-            color: "white",
-          }}
-        >
-          Profile updated successfully
-        </Alert>
-      </Snackbar>
+        Profile updated successfully
+      </Alert>
+    </Snackbar>}
 
-      <Snackbar
+    {showoffline &&  <Snackbar
         anchorOrigin={{
           vertical: "top",
           horizontal: "center",
@@ -261,7 +261,7 @@ const Profile = () => {
         >
           You are offline
         </Alert>
-      </Snackbar>
+      </Snackbar>}
 
       <div className={style.container}>
         <div className={style.update_box}>
