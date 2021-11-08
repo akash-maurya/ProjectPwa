@@ -53,7 +53,7 @@ const Cart = ()=>{
       .get(getUrl, { headers: header })
       .then((response) => {
         const data = response.data;
-        console.log(data);
+        // console.log(data);
         setItems(data) ;
         let count = 0;
         for (let i = 0; i < data.length; i++) {
@@ -101,7 +101,6 @@ const inc_cost =(amount)=>{
 function TransitionLeft(props) {
   return <Slide {...props} direction="left" />;
 }
-
 
 const CheckoutBar = (props)=>{
 
@@ -165,7 +164,7 @@ const CheckoutBar = (props)=>{
           <Alert
             severity="success"
             sx={{
-              width: "100%",
+          
               marginTop: "5rem",
               bgcolor: "rgb(64, 158, 64)",
               color: "white",

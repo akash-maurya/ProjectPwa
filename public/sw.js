@@ -151,8 +151,9 @@ self.addEventListener("fetch", function (event) {
                "https://licious-lite.herokuapp.com/api/Cart/updateOrder/inc" 
             
            ) {
-            //  console.log( event.request.url + " called");
+            
            } else {
+            //  console.log(event.request.url);
              cache.put(event.request.url, res.clone());
            }
                 

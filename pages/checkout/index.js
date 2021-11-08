@@ -36,7 +36,7 @@ const getOrderItems = async() => {
       })
       .then((response) => {
         
-        console.log(response.data);
+        // console.log(response.data);
 
         
           setItems(response.data);
@@ -71,7 +71,7 @@ if (authToken) {
       if (response.data.success === true) {
         
           if(response.data.data.address.trim().length !== 0){
-            console.log(response.data.data.address);
+            // console.log(response.data.data.address);
             getOrderItems();
           }
           else{
@@ -89,7 +89,7 @@ if (authToken) {
 
 useEffect(() => {
  updateAddprensent();
-});
+},[]);
 
 
 const ItemBox = (props)=>{

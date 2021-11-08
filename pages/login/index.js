@@ -39,7 +39,7 @@ const Login = (props) => {
             }
           )
           .then((result) => {
-            console.log(result);
+            // console.log(result);
             resp = result;
           })
           .catch((error) => {
@@ -51,12 +51,12 @@ const Login = (props) => {
   async function VerifyOTP(phonenumber , OTP , hash){
     const data = {phonenumber : phonenumber , OTP : OTP , sessionId : hash} ;
     let resp = "";
-    // axios.defaults.withCredentials = true;
+   
 
    const url = "https://licious-lite.herokuapp.com/api/auth/login/verify";
     await axios.post(url , data)
     .then((result)=>{
-        // console.log(result);
+       
         resp = result ;
     })
     .catch((error)=>{
@@ -78,13 +78,13 @@ const Login = (props) => {
            if(!res || res.data.success === false){
                setOTPbox(false);
                setNetworkError(true);
-              setTimeout(()=>{
+               setTimeout(()=>{
                   setNetworkError(false)
               }, 1500)
             }
           else
           {
-            // props.fallback_handle();
+           
              setNetworkError(false);
              setOTPbox(true);
              setInvalid(false);
@@ -129,8 +129,7 @@ const Login = (props) => {
   const handlePhoneChange = async(event)=>{
       const number = event.target.value ;
        setPhoneNumber(number);
-      // console.log(phonenumber);
-      // console.log(phonenumber.toString().length);
+   
       setInvalid(false);
   
   }

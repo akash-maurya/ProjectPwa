@@ -66,12 +66,12 @@ const Profile = () => {
           headers: header,
         })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
 
           if (response.data.success === true) {
             const resdata = response.data.data;
             const namesplit = resdata.name.split(" ");
-            console.log(namesplit);
+            // console.log(namesplit);
             setfirstname(namesplit[0]);
             setlastname(namesplit[1]);
             setadress(resdata.address);
@@ -176,11 +176,10 @@ const Profile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(firstname + " " + lastname + " " + address + " " + image);
 
     const resdata = updateProfile(firstname, lastname, address, image);
     if (resdata.success && resdata.success === true) {
-      console.log(resdata + "updated successfully");
+      
     } else {
       const authToken = cookies.get("authToken");
       const data = {
@@ -275,14 +274,6 @@ const Profile = () => {
           <h1 id={style.heading}>Update Profile</h1>
         </div>
 
-        {/* <div className={style.image_section}>
-          <img src={image} className={style.image} alt="user Image"></img>
-        </div> */}
-        {/* <div>
-          <div className="text-center">
-            <img className={Styles.profilepic} src={image} alt="Profile pic" />
-          </div>
-        </div> */}
 
         <form autoComplete="off" onSubmit={handleSubmit}>
         
