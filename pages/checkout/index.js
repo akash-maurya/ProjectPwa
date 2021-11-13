@@ -205,7 +205,7 @@ const Checkout = () => {
         ""
       )}
       <br></br>
-<div>
+<div className="text-center">
               <Link href="/" passHref>
                 <button className="btn btn-danger my-2">Go to Home</button>
               </Link>
