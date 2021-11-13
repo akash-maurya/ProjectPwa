@@ -213,7 +213,7 @@ const Checkout = () => {
               </Link>
             </div>
 <br></br>
-      ) : ""}
+      ) : ("")}
      
 
       {items.length && proceed ? (
