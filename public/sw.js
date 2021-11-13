@@ -129,28 +129,28 @@ self.addEventListener("fetch", function (event) {
         return fetch(event.request).then(function (res) {
           return caches.open("dynamic").then(function (cache) {
             if (
-              event.request.url === 'http://localhost:3000/api/items/getItems' ||
+              event.request.url === 'https://lite-licious.herokuapp.com/api/items/getItems' ||
               event.request.url ===
-                "http://localhost:3000/api/Cart/getCartItems" ||
+                "https://lite-licious.herokuapp.com/api/Cart/getCartItems" ||
               event.request.url ===
-                "http://localhost:3000/api/update/updateDetails" ||
+                "https://lite-licious.herokuapp.com/api/update/updateDetails" ||
               event.request.url ===
-                "http://localhost:3000/api/auth/login/verify" ||
+                "https://lite-licious.herokuapp.com/api/auth/login/verify" ||
               event.request.url ===
-                "http://localhost:3000/api/auth/login/sendOTP" ||
+                "https://lite-licious.herokuapp.com/api/auth/login/sendOTP" ||
               event.request.url ===
-                "http://localhost:3000/api/update/getdetails" ||
+                "https://lite-licious.herokuapp.com/api/update/getdetails" ||
               event.request.url ===
-                "http://localhost:3000/api/Cart/deleteItem" ||
+                "https://lite-licious.herokuapp.com/api/Cart/deleteItem" ||
               event.request.url ===
-                "http://localhost:3000/api/Cart/updateOrder/dec" ||
+                "https://lite-licious.herokuapp.com/api/Cart/updateOrder/dec" ||
               event.request.url ===
-                "http://localhost:3000/api/Cart/updateOrder/inc" ||
+                "https://lite-licious.herokuapp.com/api/Cart/updateOrder/inc" ||
               event.request.url ===
-                "https://localhost:3000/api/update/checkproxy" ||
+                "https://lite-licious.herokuapp.com/api/update/checkproxy" ||
               event.request.url ===
-                "http://localhost:3000/api/update/orderCount" ||
-              event.request.url === "http://localhost:3000/api/Cart/clearCart"
+                "https://lite-licious.herokuapp.com/api/update/orderCount" ||
+              event.request.url === "https://lite-licious.herokuapp.com/api/Cart/clearCart"
             ) {
               // console.log(event.request.url);
             } else {
@@ -182,7 +182,7 @@ self.addEventListener("sync", function (event) {
           };
           console.log(data);
           const hitUrl =
-            "https://licious-lite.herokuapp.com/api/update/updateDetails";
+            "https://lite-licious.herokuapp.com/api/update/updateDetails";
           // const authToken = cookies.get("authToken");
           const header = {
             "Content-Type": "application/json",
