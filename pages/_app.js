@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-capable" content="yes"></meta>
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="yes" />
-        <link rel="apple-touch-icon" href="./public/icon/Lapha.png"></link>
+        <link rel="apple-touch-icon" href="/icon/Lapha.png"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
