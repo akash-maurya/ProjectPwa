@@ -204,6 +204,13 @@ const Checkout = () => {
       ) : (
         ""
       )}
+      <br></br>
+<div>
+              <Link href="/" passHref>
+                <button className="btn btn-danger my-2">Go to Home</button>
+              </Link>
+            </div>
+<br></br>
 
       {items.length && proceed ? (
         <div className={`container-sm ${style.itemlist}`}>
