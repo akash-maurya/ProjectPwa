@@ -99,8 +99,7 @@ async function getItems(){
 const readguestItem =()=>{
 
  if(!cookies.get('authToken')){
-  readallData("cart") 
-  .then((data)=>{
+  readallData("cart").then((data)=>{
     setTotalItem(data.length);
   })
 }
