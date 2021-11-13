@@ -204,13 +204,17 @@ const Checkout = () => {
       ) : (
         ""
       )}
-      <br></br>
+      
+      {items.length && !showfallback && proceed ? (
+         <br></br>
 <div className="text-center">
               <Link href="/" passHref>
                 <button className="btn btn-danger my-2">Go to Home</button>
               </Link>
             </div>
 <br></br>
+      ) : ""}
+     
 
       {items.length && proceed ? (
         <div className={`container-sm ${style.itemlist}`}>
