@@ -152,9 +152,9 @@ self.addEventListener("fetch", function (event) {
                 "http://localhost:3000/api/update/orderCount" ||
               event.request.url === "http://localhost:3000/api/Cart/clearCart"
             ) {
-              console.log(event.request.url);
+              // console.log(event.request.url);
             } else {
-              console.log(event.request.url);
+              // console.log(event.request.url);
               cache.put(event.request.url, res.clone());
             }
 

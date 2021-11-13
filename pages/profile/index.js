@@ -74,7 +74,7 @@ const Profile = () => {
 
           if (response.data.success === true) {
             const resdata = response.data.data;
-            console.log(resdata);
+            // console.log(resdata);
           if(resdata.name !== 'undefined'){
 
             
@@ -315,7 +315,7 @@ const Profile = () => {
             <img className={Styles.profilepic} src={image} alt="Profile pic" />
 
             <div>
-              <label for="file" className = {style.camera_outer}>
+              <label htmlFor="file" className = {style.camera_outer}>
                 <img className ={style.camera} src = "/camera.png"></img>
                 </label>
               <input

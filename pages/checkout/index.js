@@ -137,9 +137,11 @@ const Checkout = () => {
   const ItemBox = (props) => {
     return (
       <>
+      <li className="list-group-item">
         <div className="fs-5 text-center">
           <p className = {style.title}>{props.name}</p>
         </div>
+      </li>
       </>
     );
   };
@@ -212,9 +214,9 @@ const Checkout = () => {
             <div className="list-group list-group-flush">
               {items.map((item , index) => {
                 return (
-                  <li className="list-group-item">
+                  
                     <ItemBox key={index} name={item.name} />
-                  </li>
+                 
                 );
               })}
             </div>

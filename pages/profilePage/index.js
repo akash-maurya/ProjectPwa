@@ -10,7 +10,7 @@ import Router from "next/router";
 import Loader from '../../components/loader';
 
 
-function profile() {
+function Profile() {
   const [firstname, setfirstname] = useState("");
   const [lastname, setlastname] = useState("");
   const [address, setadress] = useState("");
@@ -37,7 +37,7 @@ function profile() {
           headers: header,
         })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
 
           if (response.data.success === true) {
             const resdata = response.data.data;
@@ -176,4 +176,4 @@ function profile() {
     </div>
   );
 }
-export default profile;
+export default Profile;
