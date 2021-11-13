@@ -48,9 +48,9 @@ function MyApp({ Component, pageProps }) {
         ></meta>
         {/* <script src="/idb.js"></script> */}
       </Head>
-
-      <Script src="/utility.js"></Script>
       <Script src="/idb.js"></Script>
+      <Script src="/utility.js"></Script>
+
       <Component {...pageProps} />
     </>
   );
