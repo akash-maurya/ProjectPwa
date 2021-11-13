@@ -34,7 +34,7 @@ const Login = (props) => {
             amount: item.amount,
             quantity: item.quantity,
           };
-        const hitUrl = `http://localhost:3000/api/Cart/addtoCart`;
+        const hitUrl = `https://lite-licious.herokuapp.com/api/Cart/addtoCart`;
         const header = {
            "Content-Type" : "application/json",
            "authToken" : cookies.get('authToken')
@@ -68,7 +68,7 @@ const Login = (props) => {
         
         await axios
           .post(
-            `http://localhost:3000/api/auth/login/sendOTP`,
+            `https://lite-licious.herokuapp.com/api/auth/login/sendOTP`,
             data,
             {
               headers: headerVal,
@@ -87,7 +87,7 @@ const Login = (props) => {
   async function VerifyOTP(phonenumber , OTP , hash){
     const data = {phonenumber : phonenumber , OTP : OTP , sessionId : hash} ;
     let resp = '';
-    const url = "http://localhost:3000/api/auth/login/verify";
+    const url = "https://lite-licious.herokuapp.com/api/auth/login/verify";
     await axios.post(url , data)
     .then((result)=>{ 
         resp = result ;

@@ -19,7 +19,7 @@ const Checkout = () => {
 
   const clearCart = async ()=>{
 
-    const hitUrl = `http://localhost:3000/api/Cart/clearCart`;
+    const hitUrl = `https://lite-licious.herokuapp.com/api/Cart/clearCart`;
     const authToken = cookies.get("authToken");
     const header = {
      "Content-Type": "application/json",
@@ -38,7 +38,7 @@ const Checkout = () => {
   }
 
   const updateOrderCount = async()=>{
-    const hitUrl = "http://localhost:3000/api/update/orderCount";
+    const hitUrl = "https://lite-licious.herokuapp.com/api/update/orderCount";
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const Checkout = () => {
   }
 
   const getOrderItems = async () => {
-    const hitUrl = "http://localhost:3000/api/Cart/getCartItems";
+    const hitUrl = "https://lite-licious.herokuapp.com/api/Cart/getCartItems";
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",
@@ -91,7 +91,7 @@ const Checkout = () => {
   };
 
   const updateAddprensent = async () => {
-    const hitUrl = "https://licious-lite.herokuapp.com/api/update/getdetails";
+    const hitUrl = "https://lite-licious.herokuapp.com/api/update/getdetails";
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",

@@ -24,7 +24,7 @@ const  Home = () =>{
 
 
 async function getItems(){
-  await fetch("http://localhost:3000/api/items/getItems", {
+  await fetch("https://lite-licious.herokuapp.com/api/items/getItems", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -58,7 +58,7 @@ async function getItems(){
 
 
  const checkDummy = async()=>{
-   const hitUrl = `http://localhost:3000/api/update/checkproxy` ;
+   const hitUrl = `https://lite-licious.herokuapp.com/api/update/checkproxy` ;
   await axios.get(hitUrl)
   .then((res)=>{
     // do nothing
@@ -78,7 +78,7 @@ async function getItems(){
     "authToken": authToken,
   };
 
-  const getUrl = "http://localhost:3000/api/Cart/getCartItems";
+  const getUrl = "https://lite-licious.herokuapp.com/api/Cart/getCartItems";
   
   if (authToken) {
      axios
