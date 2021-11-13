@@ -199,21 +199,19 @@ const Checkout = () => {
                 <img className={style.checkicon} src="/Success.svg"></img>
               </p>
             </div>
-          </div>
-        </div>
-      ) : (
-        ""
-      )}
-      
-      {items.length && !showfallback && proceed ? (
-         <br></br>
+ <br></br>
 <div className="text-center">
               <Link href="/" passHref>
                 <button className="btn btn-danger my-2">Go to Home</button>
               </Link>
             </div>
 <br></br>
-      ) : ("")}
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+      
      
 
       {items.length && proceed ? (
