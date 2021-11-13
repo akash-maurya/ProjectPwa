@@ -47,8 +47,8 @@ function MyApp({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"
         ></meta>
-        <script src="/idb.js"></script>
-      <script src="/utility.js"></script>
+        <script async src="/idb.js"></script>
+      <script async src="/utility.js"></script>
       </Head>
       
       <Component {...pageProps} />
