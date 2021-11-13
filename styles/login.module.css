@@ -3,14 +3,14 @@
 
 .outer_layer{
     background-color: rgba(32, 31, 31, 0.7);
-    /* z-index: 8; */
+    z-index: 8;
     top :0;
     bottom:  0;
     left: 0;
     position: fixed;
     margin: 0;
     padding: 0;
-   
+    position: fixed;
     width: 100vw;
     height: 100vh;
 }

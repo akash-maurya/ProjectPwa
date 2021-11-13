@@ -11,68 +11,81 @@ import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import Slide from "@mui/material/Slide";
 import CircularProgress from '@mui/material/CircularProgress';
+import Link  from 'next/dist/client/link';
 
 const  Home = () =>{
-
+  
   const [Items,setItems] = useState([]);
   const [load, setloader] = useState(true);
   const [showPopup , setPopup] = useState(false);
   const [nonetwork ,setnonetwork] =useState(false);
   const [totoalItem , setTotalItem] = useState(0);
-
+  const cookies = new Cookies();
 
 
 async function getItems(){
-  await fetch("https://licious-lite.herokuapp.com/api/items/getItems",{
-    method : "GET",
+  await fetch("http://localhost:3000/api/items/getItems", {
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json",
+      Accept: "application/json",
     },
   })
-  .then((respone)=>{
-    return respone.json();
-  })
- .then((item)=>{
-    const ItemsArray = item.map((itemdata) => {
-      return {
-        itemId: itemdata.itemId,
-        title : itemdata.title,
-        description : itemdata.description,
-        price : itemdata.price,
-        weight : itemdata.weight,
-        image  : itemdata.image
-      };
-  })
-   
-    setItems(ItemsArray);
-    setloader(false);
+    .then((respone) => {
+      return respone.json();
+    })
+    .then((item) => {
+      const ItemsArray = item.map((itemdata) => {
+        return {
+          itemId: itemdata.itemId,
+          title: itemdata.title,
+          description: itemdata.description,
+          price: itemdata.price,
+          weight: itemdata.weight,
+          image: itemdata.image,
+        };
+      });
+
+      setItems(ItemsArray);
+      setloader(false);
+    })
+    .catch((err) => {
+      setloader(false);
+      setnonetwork(true);
+      console.log(err);
+    });
+ }
+
+
+ const checkDummy = async()=>{
+   const hitUrl = `http://localhost:3000/api/update/checkproxy` ;
+  await axios.get(hitUrl)
+  .then((res)=>{
+    // do nothing
+    return true ;
   })
   .catch((err)=>{
+    setloader(false);
     setnonetwork(true);
-    console.log(err);
-  }
-  )
+    return false ;
+  })
  }
 
  function CountCart (){
-   
-  const cookies = new Cookies();
   const authToken = cookies.get("authToken");
   const header = {
     "Content-Type": "application/json",
     "authToken": authToken,
   };
 
-  const getUrl = "https://licious-lite.herokuapp.com/api/Cart/getCartItems";
+  const getUrl = "http://localhost:3000/api/Cart/getCartItems";
   
   if (authToken) {
      axios
       .get(getUrl, { headers: header })
       .then((response) => {
-        // console.log(response.data);
+       
         const data = response.data;
-        // setItems
         setTotalItem(data.length);
       
       })
@@ -81,6 +94,21 @@ async function getItems(){
         console.log(err);
       });
   }
+}
+
+const readguestItem =()=>{
+
+ if(!cookies.get('authToken')){
+  readallData("cart") 
+  .then((data)=>{
+    setTotalItem(data.length);
+  })
+}
+}
+
+
+const nonetworkzone = ()=>{
+  setnonetwork(true);
 }
 
  const handSetPopup = ( event , message)=>{
@@ -94,13 +122,15 @@ async function getItems(){
     setTimeout(() => {
       setPopup(false);
     }, 1500);
-    // CountCart();
  }
 
 useEffect(() => {
-  CountCart()
-  getItems();
-
+ 
+    getItems()
+    CountCart();
+    readguestItem();
+  
+ 
 }, [])
 
 function TransitionLeft(props) {
@@ -112,42 +142,49 @@ function TransitionLeft(props) {
       <div>
         <Script src="https://use.fontawesome.com/bff91f34a4.js"></Script>
 
-       
-        <Header cartItem={totoalItem}  isoffline = {nonetwork} isloading = {load}/>
+        <Header 
+         cartItem={totoalItem}
+         isoffline={nonetwork} 
+         isloading={load} 
+         handle_offline = {nonetworkzone}
+         />
       </div>
 
-   { showPopup&&  <Snackbar
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "center",
-      }}
-      TransitionComponent={TransitionLeft}
-      open={showPopup}
-      autoHideDuration={2500}
-    >
-      <Alert
-        severity="success"
-        sx={{
-          // width: "100%",
-          marginTop: "4rem",
-          bgcolor: "rgb(64, 158, 64)",
-          color: "white",
-        }}
-      >
-        Item added successfully
-      </Alert>
-    </Snackbar>}
+      {showPopup && (
+        <Snackbar
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+          TransitionComponent={TransitionLeft}
+          open={showPopup}
+          autoHideDuration={2500}
+        >
+          <Alert
+            severity="success"
+            sx={{
+              marginTop: "4rem",
+              bgcolor: "rgb(64, 158, 64)",
+              color: "white",
+            }}
+          >
+            Item added successfully
+          </Alert>
+        </Snackbar>
+      )}
 
       {!nonetwork && (
         <div className={style.create_box}>
-         { load && <CircularProgress
-             sx={{
-            marginTop: "7rem",
-            marginLeft : "50%",
-            color: "red",
+          {load && (
+            <CircularProgress
+              sx={{
+                marginTop: "7rem",
+                marginLeft: "50%",
+                color: "red",
               }}
               color="secondary"
-            />}
+            />
+          )}
           {!load && (
             <div className={style.grid_container}>
               {Items.map((item) => {
@@ -155,6 +192,7 @@ function TransitionLeft(props) {
                   <CardItem
                     triggerPopup={handSetPopup}
                     key={item.itemId}
+                    itemId={item.itemId}
                     title={item.title}
                     description={item.description}
                     image={item.image}
@@ -167,8 +205,22 @@ function TransitionLeft(props) {
           )}
         </div>
       )}
+      {!load && totoalItem > 0 ? (
+        <div className={style.footerCart}>
+          <div className={style.flexview}>
+            <img src="/bluetick.png" className={style.bluetick}></img>
+            <div>Added to Cart</div>
+          </div>
+
+          <Link href="/cart" passHref>
+            <button className={style.cart_button}>View cart </button>
+          </Link>
+        </div>
+      ) : (
+        ""
+      )}
       {nonetwork && <Fallback />}
-      <Footer nonetwork={nonetwork} isloading = {load}/>
+      <Footer nonetwork={nonetwork} isloading={load} />
     </div>
   );
 }

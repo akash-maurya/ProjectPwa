@@ -120,7 +120,6 @@ define("./sw.js", ["./workbox-1ffba242"], function (workbox) {
 });
 //# sourceMappingURL=sw.js.map
 
-
 self.addEventListener("fetch", function (event) {
   event.respondWith(
     caches.match(event.request).then(function (response) {
@@ -129,34 +128,36 @@ self.addEventListener("fetch", function (event) {
       } else {
         return fetch(event.request).then(function (res) {
           return caches.open("dynamic").then(function (cache) {
-            
             if (
-               event.request.url === 
-              "https://licious-lite.herokuapp.com/api/items/getItems"||  
-             event.request.url ===
-               "https://licious-lite.herokuapp.com/api/Cart/getCartItems" ||
-             event.request.url ===
-               "https://licious-lite.herokuapp.com/api/update/updateDetails" ||
-             event.request.url ===
-               "https://licious-lite.herokuapp.com/api/auth/login/verify" ||
-             event.request.url ===
-               "https://licious-lite.herokuapp.com/api/auth/login/sendOTP" ||
-             event.request.url ===
-               "https://licious-lite.herokuapp.com/api/update/getdetails" ||
-             event.request.url ===
-               "https://licious-lite.herokuapp.com/api/Cart/deleteItem" ||
-             event.request.url ===
-               "https://licious-lite.herokuapp.com/api/Cart/updateOrder/dec" ||
-             event.request.url ===
-               "https://licious-lite.herokuapp.com/api/Cart/updateOrder/inc" 
-            
-           ) {
-            
-           } else {
-            //  console.log(event.request.url);
-             cache.put(event.request.url, res.clone());
-           }
-                
+              event.request.url === 'http://localhost:3000/api/items/getItems' ||
+              event.request.url ===
+                "http://localhost:3000/api/Cart/getCartItems" ||
+              event.request.url ===
+                "http://localhost:3000/api/update/updateDetails" ||
+              event.request.url ===
+                "http://localhost:3000/api/auth/login/verify" ||
+              event.request.url ===
+                "http://localhost:3000/api/auth/login/sendOTP" ||
+              event.request.url ===
+                "http://localhost:3000/api/update/getdetails" ||
+              event.request.url ===
+                "http://localhost:3000/api/Cart/deleteItem" ||
+              event.request.url ===
+                "http://localhost:3000/api/Cart/updateOrder/dec" ||
+              event.request.url ===
+                "http://localhost:3000/api/Cart/updateOrder/inc" ||
+              event.request.url ===
+                "https://localhost:3000/api/update/checkproxy" ||
+              event.request.url ===
+                "http://localhost:3000/api/update/orderCount" ||
+              event.request.url === "http://localhost:3000/api/Cart/clearCart"
+            ) {
+              console.log(event.request.url);
+            } else {
+              console.log(event.request.url);
+              cache.put(event.request.url, res.clone());
+            }
+
             return res;
           });
         });

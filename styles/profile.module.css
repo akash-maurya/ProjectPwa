@@ -6,14 +6,37 @@
 }
 .update_box{
    
-    width: 102%;
+    width: 100%;
     background-color: rgb(255, 253, 253);
     height: 4rem;
     font-size: 1rem;
     box-shadow: 2px 2px 8px 5px rgb(194, 192, 192);
 }
+.camera{
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    margin-left: 0px;
+    z-index: 12;
+    color: #e41d36;
+}
+.camera_outer{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(155, 154, 154);
+    margin-left: -22px;
+    margin-top: -25px;
+    border : 1px solid #e41d36;
+}
+
+.putimage{
+    background-image: url('../public/camera.png');
+    width: 10rem;
+    height: 10rem;
+}
 .back_arrow{
-    /* position: fixed; */
+   
     width: 2rem;
     height: 1.5rem;
     margin-top: 1rem;
@@ -22,10 +45,18 @@
     cursor: pointer;
 }
 
+.file_input{
+    border: 1px solid #ccc;
+    display: none;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+}
+
 #heading {
    
     font-size: 1.3rem;
-    /* position: absolute; */
+   
     margin: auto;
     margin-left: 45%;
     margin-top: -1rem;
@@ -109,6 +140,7 @@
     font-size: 1.3rem;
     font-weight: 200;
     margin: 0.5rem;
+    
 }
 .column_flex{
     display: flex;
@@ -126,6 +158,16 @@
     box-shadow: 2px 2px sloid rgb(88, 87, 87);
 }
 
+@media screen and (max-width : 380px) {
+    .update_box{
+        width: 100%;
+        background-color: rgb(255, 251, 251);
+        height: 3.5rem;
+        font-size: 1rem;
+         box-shadow: 2px 2px 8px 5px rgb(194, 192, 192);
+    }
+}
+
 @media screen and (max-width : 550px ) {
 .container{
     margin: 0;
@@ -134,14 +176,13 @@
     font-size: 1rem;
 }
 .update_box{
-    width: 102%;
+    width: 100%;
     background-color: rgb(255, 251, 251);
-    height: 4rem;
+    height: 3.8rem;
     font-size: 1rem;
     box-shadow: 2px 2px 8px 5px rgb(194, 192, 192);
 }
 .back_arrow{
-    /* position: fixed; */
     width: 2rem;
     height: 1.5rem;
     margin-top: 1rem;
@@ -150,14 +191,30 @@
 }
 
 #heading {
-    /* position: absolute; */
     font-size: 1.3rem;
     position: absolute;
     margin: auto;
-    margin-left: 42%;
-    margin-top: -1rem;
+    margin-left: 33%;
+    margin-top: -3vh;
     color: #000;
     font-weight: 300;
+}
+.camera{
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    margin-left: 0px;
+    z-index: 12;
+    color: #e41d36;
+}
+.camera_outer{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(155, 154, 154);
+    margin-left: -22px;
+    margin-top: -25px;
+    border : 1px solid #e41d36;
 }
 
 .image_section{
@@ -171,14 +228,25 @@
 
 
 .label{
+    display: flex;
     font-size: 0.8rem;
     font-weight: 200;
     margin: 0.3rem;
+    justify-content: left;
+    margin-left: 0;
+}
+
+.label_address{
+     font-size: 0.8rem;
+    font-weight: 200;
+    margin: 0.3rem;
+    float: left;
+    margin-left: 0;
 }
 
 .input{
     min-width: 85vw;
-    min-height: 2.5rem;
+    min-height: 2.3rem;
     margin-bottom: 0.8rem;
     font-size: 1rem;
     font-weight: 400;
@@ -192,12 +260,11 @@
 
 .name_input{
     width: 40vw;
-    height: 2.5rem;
+    height: 2.3rem;
     font-size: 1rem;
     font-weight: 400;
     border-radius: 4px;
     padding-left: 5px ;
-  
     border : 1px solid rgb(138, 134, 134);
     box-shadow: 2px 2px sloid rgb(88, 87, 87);
 }
@@ -206,7 +273,8 @@
     display: flex;
     flex-direction: column;
     margin: 0.7rem;
-    margin-top: 2rem;
+    margin-left: 0;
+    /* margin-top: 2rem; */
 }
 
 
@@ -269,7 +337,23 @@
     margin-left: 1rem;
   
 }
-
+.camera{
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    margin-left: 0px;
+    z-index: 12;
+    color: #e41d36;
+}
+.camera_outer{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(155, 154, 154);
+    margin-left: -22px;
+    margin-top: -25px;
+    border : 1px solid #e41d36;
+}
 
 #heading {
     /* position: absolute; */
@@ -476,5 +560,23 @@
      border: 1px solid #e41d36;
      outline: none;
      cursor: pointer;
+}
+
+.camera{
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    margin-left: 0px;
+    z-index: 12;
+    color: #e41d36;
+}
+.camera_outer{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(155, 154, 154);
+    margin-left: -22px;
+    margin-top: -25px;
+    border : 1px solid #e41d36;
 }
 }

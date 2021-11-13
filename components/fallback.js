@@ -1,6 +1,5 @@
 import style from '../styles/fallback.module.css';
 import Link from 'next/link';
-
 import router from 'next/router';
 import SignalWifiOffOutlinedIcon from "@material-ui/icons/SignalWifiOffOutlined";
 const hard_refresh = ()=>{

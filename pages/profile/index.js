@@ -2,8 +2,6 @@ import style from "../../styles/profile.module.css";
 import Styles from "../../styles/profilePage.module.css";
 import Head from "next/head";
 import Link from "next/link";
-import user from "../../public/user.jpeg";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
@@ -11,10 +9,12 @@ import Router from "next/router";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import Slide from "@mui/material/Slide";
-import { Avatar } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft ,faCamera } from "@fortawesome/free-solid-svg-icons";
 import "bootstrap/dist/css/bootstrap.css";
+import Loader from '../../components/loader';
+
+
 
 const Profile = () => {
   const cookies = new Cookies();
@@ -23,6 +23,7 @@ const Profile = () => {
   const [lastname, setlastname] = useState("");
   const [address, setadress] = useState("");
   const [image, setimage] = useState("/user.jpeg");
+  const [imagefile , setimagefile] = useState(null);
   const [mobileNumber, setmobileNumber] = useState(0);
   const [ApiFirstName, setApiFirstName] = useState("");
   const [ApiLastName, setApiLastName] = useState("");
@@ -31,6 +32,8 @@ const Profile = () => {
   const [Isvalid, setIsvalid] = useState(true);
   const [showUpdate, setUpdate] = useState(false);
   const [showoffline, setoffline] = useState(false);
+  const [load , setload] = useState(true) ;
+
 
   const handlefirstname = (event) => {
     setfirstname(event.target.value);
@@ -48,12 +51,13 @@ const Profile = () => {
   };
 
   const handleimage = (event) => {
-    setimage(event.target.value);
-    validate("image", event.target.value);
+    setimage(URL.createObjectURL(event.target.files[0]));
+    setimagefile(event.target.files[0]);
+    validate("image", URL.createObjectURL(event.target.files[0]));
   };
 
   async function getdetails() {
-    const hitUrl = "https://licious-lite.herokuapp.com/api/update/getdetails";
+    const hitUrl = "http://localhost:3000/api/update/getdetails";
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",
@@ -66,21 +70,33 @@ const Profile = () => {
           headers: header,
         })
         .then((response) => {
-          // console.log(response.data);
+        
 
           if (response.data.success === true) {
             const resdata = response.data.data;
+            console.log(resdata);
+          if(resdata.name !== 'undefined'){
+
+            
             const namesplit = resdata.name.split(" ");
-            // console.log(namesplit);
+
             setfirstname(namesplit[0]);
             setlastname(namesplit[1]);
-            setadress(resdata.address);
-            setimage(resdata.image);
+            if(resdata.address && resdata.image)
+           { 
+              setadress(resdata.address);
+              setimage(resdata.image);
+              setApiAddress(resdata.address);
+              setApiImage(resdata.image);
+          }
+
             setmobileNumber(resdata.mobileNumber);
-            setApiFirstName(namesplit[0]);
-            setApiLastName(namesplit[1]);
-            setApiAddress(resdata.address);
-            setApiImage(resdata.image);
+
+              setApiFirstName(namesplit[0]);
+              setApiLastName(namesplit[1]);
+            
+            }
+            setload(false);
           }
         })
         .catch((err) => {
@@ -101,14 +117,15 @@ const Profile = () => {
 
   async function updateProfile(fname, lname, userAddress, image) {
     let res = "";
-    const data = {
-      firstname: fname,
-      lastname: lname,
-      address: userAddress,
-      image: image,
-    };
-    const hitUrl =
-      "https://licious-lite.herokuapp.com/api/update/updateDetails";
+
+    var data = new FormData();
+    
+    data.append('file' , imagefile);
+    data.append('firstname', fname);
+    data.append('lastname' , lname);
+    data.append('address' ,userAddress);
+    data.append('imageUrl' , image);
+    const hitUrl = "http://localhost:3000/api/update/updateDetails";
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",
@@ -140,6 +157,10 @@ const Profile = () => {
         });
     }
     return res;
+  }
+
+  function openInput() {
+     document.getElementById('file').click();
   }
 
   function validate(key, val) {
@@ -179,7 +200,7 @@ const Profile = () => {
 
     const resdata = updateProfile(firstname, lastname, address, image);
     if (resdata.success && resdata.success === true) {
-      
+        
     } else {
       const authToken = cookies.get("authToken");
       const data = {
@@ -192,7 +213,6 @@ const Profile = () => {
 
       if ("serviceWorker" in navigator && "SyncManager" in window) {
         navigator.serviceWorker.ready.then(function (sw) {
-          //  sw.sync.register("sync-new-profile");
 
           writedata("profile", data)
             .then(function () {
@@ -218,53 +238,58 @@ const Profile = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-    {showUpdate && <Snackbar
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "center",
-      }}
-      TransitionComponent={TransitionLeft}
-      open={showUpdate}
-      autoHideDuration={2000}
-    >
-      <Alert
-        severity="success"
-        sx={{
-          width: "100%",
-          marginTop: "4rem",
-          bgcolor: "rgb(64, 158, 64)",
-          color: "white",
-        }}
-      >
-        Profile updated successfully
-      </Alert>
-    </Snackbar>}
-
-    {showoffline &&  <Snackbar
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
-        TransitionComponent={TransitionLeft}
-        open={showoffline}
-        autoHideDuration={3000}
-      >
-        <Alert
-          severity="error"
-          sx={{
-            width: "50vw",
-            marginTop: "4rem",
-            bgcolor: "rgb(228, 111, 111)",
-            color: "white",
+      {showUpdate && (
+        <Snackbar
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center",
           }}
+          TransitionComponent={TransitionLeft}
+          open={showUpdate}
+          autoHideDuration={2000}
         >
-          You are offline
-        </Alert>
-      </Snackbar>}
+          <Alert
+            severity="success"
+            sx={{
+              width: "100%",
+              marginTop: "4rem",
+              bgcolor: "rgb(64, 158, 64)",
+              color: "white",
+            }}
+          >
+            Profile updated successfully
+          </Alert>
+        </Snackbar>
+      )}
+
+      {showoffline && (
+        <Snackbar
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+          TransitionComponent={TransitionLeft}
+          open={showoffline}
+          autoHideDuration={3000}
+        >
+          <Alert
+            severity="error"
+            sx={{
+              width: "50vw",
+              marginTop: "4rem",
+              bgcolor: "rgb(228, 111, 111)",
+              color: "white",
+            }}
+          >
+            You are offline
+          </Alert>
+        </Snackbar>
+      )}
 
       <div className={style.container}>
+        {load ? <Loader /> : ""}
         <div className={style.update_box}>
-          <Link href="/" passHref>
+          <Link href="/profilePage" passHref>
             <FontAwesomeIcon
               className={style.back_arrow}
               icon={faChevronLeft}
@@ -274,13 +299,34 @@ const Profile = () => {
           <h1 id={style.heading}>Update Profile</h1>
         </div>
 
-
-        <form autoComplete="off" onSubmit={handleSubmit}>
-        
-          <div className="text-center">
+        <form
+          autoComplete="off"
+          onSubmit={handleSubmit}
+          encType="multipart/form-data"
+        >
+          <div
+            style={{
+              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <img className={Styles.profilepic} src={image} alt="Profile pic" />
+
+            <div>
+              <label for="file" className = {style.camera_outer}>
+                <img className ={style.camera} src = "/camera.png"></img>
+                </label>
+              <input
+                type="file"
+                id="file"
+                onChange={handleimage}
+                className={style.file_input}
+              />
+            </div>
           </div>
-        
+
           <div className={style.text_container}>
             <div className={style.name}>
               <div className={style.column_flex}>
@@ -292,6 +338,7 @@ const Profile = () => {
                   autoComplete="false"
                   onChange={handlefirstname}
                   value={firstname}
+                  minLength="1"
                 />
               </div>
 
@@ -304,37 +351,33 @@ const Profile = () => {
                   autoComplete="false"
                   onChange={handlelastname}
                   value={lastname}
+                  minLength="1"
                 />
               </div>
             </div>
 
-            <label className={style.label}>Phone no</label>
-            <input
-              className={style.input}
-              disabled
-              name="phoneNumber"
-              type="tel"
-              value={mobileNumber}
-            />
+            <div className={style.column_flex}>
+              <label className={style.label_address}>Phone no</label>
+              <input
+                className={style.input}
+                disabled
+                name="phoneNumber"
+                type="tel"
+                value={mobileNumber}
+              />
+            </div>
 
-            <label className={style.label}>Address</label>
-            <input
-              className={style.input}
-              onChange={handleadress}
-              name="address"
-              type="text"
-              autoComplete="false"
-              value={address}
-            />
-            <label className={style.label}>Image</label>
-            <input
-              className={style.input}
-              onChange={handleimage}
-              name="image"
-              type="text"
-              autoComplete="false"
-              value={image}
-            />
+            <div className={style.column_flex}>
+              <label className={style.label_address}>Address</label>
+              <input
+                className={style.input}
+                onChange={handleadress}
+                name="address"
+                type="text"
+                autoComplete="false"
+                value={address}
+              />
+            </div>
 
             <button
               type="submit"
@@ -345,9 +388,7 @@ const Profile = () => {
               Submit
             </button>
 
-            <button onClick={handlelogout} className={style.btn_logout}>
-              LOGOUT
-            </button>
+           
           </div>
         </form>
       </div>

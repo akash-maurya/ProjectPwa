@@ -1,26 +1,62 @@
 import style from "../../styles/login.module.css";
-import Image from "next/image";
-import logo from "../../public/Licious-Logo.png";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes} from "@fortawesome/free-solid-svg-icons";
-
 import axios  from "axios";
 import React , {useState} from "react";
 import Cookies from 'universal-cookie';
+import router from 'next/router';
+
+
+
 
 const Login = (props) => {
 
   const cookies = new Cookies();
   const [showOTPbox , setOTPbox]  = useState(false);
   const [phonenumber , setPhoneNumber] = useState(0);
-  const [showInvalid , setInvalid] = useState(false);
+  const [showInvalid , setInvalid] = useState(true);
   const [userConfirmed ,setUserConfirmed] = useState(false);
   const [showInvalidOTP , setInvalidOTP] = useState(false);
-  const [OTP , setOTP] = useState(0);
-  const [hash , setHash] = useState("");
+  const [OTP ,setOTP] = useState(0);
+  const [hash ,setHash] = useState("");
   const[showNetworkError ,setNetworkError] = useState(false);
-  // const [disableButton , setDisableButton] = useState(true);
+  
+
+  async function readGuestData() {
+     
+     await readallData('cart')
+     .then(async data =>{
+       
+        for( let i = 0 ; i < data.length ; i++){
+          const item = data[i];
+          const product = {
+            name: item.name,
+            amount: item.amount,
+            quantity: item.quantity,
+          };
+        const hitUrl = `http://localhost:3000/api/Cart/addtoCart`;
+        const header = {
+           "Content-Type" : "application/json",
+           "authToken" : cookies.get('authToken')
+        }
+        await axios.post(hitUrl , product , {headers : header})
+        .then((res)=>{
+          console.log("item added successfully" + res);
+          deleteItem('cart',item.itemId);
+        })
+        .catch((err)=>{
+          console.log("failed to add ");
+        })
+        if(i == data.length -1){
+          setTimeout(()=>{
+               router.push('/checkout');
+          } , 2000)
+           
+        }
+       }
+       
+     })
+  }
 
   async function  SentOTP(phonenumber){
         const data = {number : phonenumber };
@@ -29,34 +65,31 @@ const Login = (props) => {
           Accept: "application/json",
           "Content-Type" : "application/json"
         }
-        console.log("Fetch fun");
+        
         await axios
           .post(
-            `https://licious-lite.herokuapp.com/api/auth/login/sendOTP`,
+            `http://localhost:3000/api/auth/login/sendOTP`,
             data,
             {
               headers: headerVal,
             }
           )
           .then((result) => {
-            // console.log(result);
             resp = result;
           })
           .catch((error) => {
-            console.log(error);
+              
+             console.log(error);
           });
         return resp;
   }
 
   async function VerifyOTP(phonenumber , OTP , hash){
     const data = {phonenumber : phonenumber , OTP : OTP , sessionId : hash} ;
-    let resp = "";
-   
-
-   const url = "https://licious-lite.herokuapp.com/api/auth/login/verify";
+    let resp = '';
+    const url = "http://localhost:3000/api/auth/login/verify";
     await axios.post(url , data)
-    .then((result)=>{
-       
+    .then((result)=>{ 
         resp = result ;
     })
     .catch((error)=>{
@@ -64,7 +97,6 @@ const Login = (props) => {
     })
     return resp ;
   }
-  
 
   const handleSubmit = async (event)=>{
 
@@ -77,6 +109,9 @@ const Login = (props) => {
            
            if(!res || res.data.success === false){
                setOTPbox(false);
+               props.handle_offline();
+               props.toggleLogin(event); 
+               return ;
                setNetworkError(true);
                setTimeout(()=>{
                   setNetworkError(false)
@@ -90,9 +125,7 @@ const Login = (props) => {
              setInvalid(false);
              setHash(res.data.sessionId);
           
-          }
-          
-           
+          }         
     }
     else{
        setInvalid(true)
@@ -106,20 +139,25 @@ const Login = (props) => {
 
   const ConfirmOTP = async(event)=>{
      event.preventDefault();
-    // const 
-    const response = await VerifyOTP(phonenumber , OTP , hash) ;
-    // console.log(response);
+    const response = await VerifyOTP(phonenumber , OTP , hash) ;  
     if(!response || response.data.success === false){
           setInvalidOTP(true);
-          // set
+          setTimeout(() => {
+             setInvalidOTP(false);
+          }, 1500);
     }
     else{
-      console.log(response.data);
+     
       setUserConfirmed(true);
       setInvalid(false);
       setOTPbox(false);
       
-      cookies.set('authToken' , response.data.AuthToken ,  {sameSite : 'Strict' ,path : '/' , expires : new Date(new Date().getTime() + 3600*24*180)}  );
+      cookies.set('authToken' , response.data.AuthToken ,  {sameSite : 'Strict' ,path : '/' , expires : new Date(new Date().getTime() + 3600*24*180)} );
+      await readGuestData();
+  
+      window.location.pathname === '/cart'
+      ? router.reload(window.location.pathname) : '';
+      
       setTimeout(()=>{
           props.toggleLogin(event);
       }, 2000);
@@ -127,11 +165,25 @@ const Login = (props) => {
   }
 
   const handlePhoneChange = async(event)=>{
-      const number = event.target.value ;
+       const number = event.target.value ;
        setPhoneNumber(number);
-   
-      setInvalid(false);
-  
+       if(number.length !== 10){
+         setInvalid(true);
+       }
+       else if(number.length === 10){
+         
+        for(let i = 0 ; i < number.length ; i++){
+          if(number[i] >= '0' && number[i] <= '9'){
+            continue ;
+          }
+          else{
+            setInvalid(true);
+            return ;
+          }
+        }
+        setInvalid(false);
+        return ;
+       }
   }
 
   const handleChangeOTP = (event)=>{
@@ -140,23 +192,35 @@ const Login = (props) => {
 
   }
 
-  const handleclick = (event)=>{
-   
+  const handleclick = (event)=>{ 
     props.toggleLogin(event);
   }
 
+  function onlynumber(evt) {
+   var theEvent = evt || window.event;
 
-  // check whether user is logged in or not
+   // Handle paste
+   if (theEvent.type === "paste") {
+     key = event.clipboardData.getData("text/plain");
+   } else {
+     // Handle key press
+     var key = theEvent.keyCode || theEvent.which;
+     key = String.fromCharCode(key);
+   }
+   var regex = /[0-9]|\./;
+   if (!regex.test(key)) {
+     theEvent.returnValue = false;
+     if (theEvent.preventDefault) theEvent.preventDefault();
+   }
+  }
 
 
   return (
     <>
-      <div className = {style.outer_layer}>
+      <div className={style.outer_layer}>
         <div className={style.container}>
           <div className={style.layer}>
             <div className={style.flexbox}>
-             
-
               <button onClick={handleclick} className={style.toggleButton}>
                 <FontAwesomeIcon
                   className={style.cross}
@@ -167,15 +231,15 @@ const Login = (props) => {
             <div className={style.login_box}>
               <form className={style.form}>
                 <h2 className={style.animate}>Sign In / Sign Up</h2>
-               
+
                 <input
                   type="tel"
                   autoComplete="off"
                   placeholder="Enter Your phone number"
-                  min="10"
-                  max="10"
+                  maxLength = '10'
                   disabled={showOTPbox}
                   onChange={handlePhoneChange}
+                  onKeyPress = {onlynumber}
                 />
 
                 {showOTPbox && (
@@ -184,12 +248,6 @@ const Login = (props) => {
                     onChange={handleChangeOTP}
                     placeholder="Enter your OTP"
                   />
-                )}
-
-                {showInvalid && (
-                  <button disabled id={style.invalid}>
-                    Invlid number{" "}
-                  </button>
                 )}
 
                 {showInvalidOTP && (
@@ -217,7 +275,7 @@ const Login = (props) => {
                 )}
 
                 {!showOTPbox && (
-                  <button type="submit" onClick={handleSubmit}>
+                  <button  style = { showInvalid ? { backgroundColor : "gray"} : {}} disabled = {showInvalid} type="submit" onClick={handleSubmit}>
                     Proceed Via OTP
                   </button>
                 )}

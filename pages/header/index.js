@@ -1,6 +1,5 @@
 import style from "../../styles/header.module.css";
 import Cookies from "universal-cookie";
-
 import Link from "next/link";
 import Login from "../login";
 import React , {useState, useEffect} from 'react';
@@ -33,7 +32,7 @@ const CheckUserLogin= ()=>{
 
 async function getdetails (){
 
-const hitUrl = "https://licious-lite.herokuapp.com/api/update/getdetails";
+const hitUrl = "http://localhost:3000/api/update/getdetails";
 const authToken = cookies.get("authToken");
 const header = {
   "Content-Type": "application/json",
@@ -48,11 +47,13 @@ if (authToken) {
     })
     .then((response) => {
       // console.log(response.data);
-
       if(response.data.success === true){
             const resdata = response.data.data;
-           const fname = resdata.name.split(" ");
-           setName(fname[0]);
+
+            if(resdata.name.lenght !== 0){
+            const fname = resdata.name.split(" ");
+            setName(fname[0]);
+          }
       }
     })
     .catch((err) => {
@@ -68,6 +69,9 @@ const toggleCart = (event )=>{
    setShowCart(!showCart);
 }
   
+const nonetwork = ()=>{
+    props.handle_offline();
+}
 
 const handleclick = (event)=>{
    event.preventDefault();
@@ -79,9 +83,7 @@ const handleclick = (event)=>{
 
 
 useEffect(() => {
-  CheckUserLogin();
-  // getdetails();
- 
+  CheckUserLogin(); 
 }, [showlogin , CheckLogin ]);
 
   return (
@@ -103,7 +105,7 @@ useEffect(() => {
             )}
 
             {!props.isoffline && !props.isloading && CheckLogin && (
-              <Link href="/profile" passHref>
+              <Link href="/profilePage" passHref>
                 <button className={style.profile_btn}>
                   
                  {  <span className={style.name}>Hi {name}</span>}
@@ -112,7 +114,7 @@ useEffect(() => {
             )}
 
             <Link href="/cart" passHref>
-              <button disabled={!CheckLogin || props.isOffline} className={style.btn}>
+              <button disabled={(!CheckLogin || props.isOffline)&& props.cartItem === 0} className={style.btn}>
                 <span>Cart </span>
                 <Badge badgeContent={props.cartItem} color="secondary"> 
                   <ShoppingCartIcon fontSize="small" />
@@ -120,7 +122,10 @@ useEffect(() => {
               </button>
             </Link>
           </div>
-          {showlogin && <Login toggleLogin={handleclick}></Login>}
+          {showlogin && <Login 
+          toggleLogin={handleclick}
+          handle_offline = {nonetwork}
+          />}
         </nav>
       </div>
     </>

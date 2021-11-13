@@ -2,11 +2,29 @@
   border-radius: 50%;
   width: 13rem;
   height: 13rem;
-  margin-top: 15px;
   padding-top: 15px;
   padding-bottom: 10px;
 }
 
+  .headline{
+    font-size: 1.7rem;
+    color: #fff;
+    margin-top: 0.7rem;
+    margin-left: 10vw;
+  }
+  .text_heading{
+    font-size: 1.5rem;
+  }
+  .text_para{
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+  }
+  .text_main{
+   padding: 0;
+    margin: 0;
+    font-size: 1.3rem;
+  }
 .submitbtn {
   color: #fff;
   background-color: #e41d36;
@@ -21,10 +39,27 @@
 @media screen and (max-width: 550px) {
   .profilepic {
     border-radius: 50%;
-    width: 8rem;
-    height: 8.5rem;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    width: 30vw;
+    height: 20vh;
+  }
+  .headline{
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 0.7rem;
+    margin-left: 10vw;
+  }
+  .text_heading{
+    font-size: 1.2rem;
+  }
+  .text_para{
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  .text_main{
+   padding: 0;
+    margin: 0;
+    font-size: 1.1rem;
   }
 }
 @media screen and (min-width: 550px) and (max-width: 700px) {
@@ -35,6 +70,25 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
+   .headline{
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 0.7rem;
+    margin-left: 10vw;
+  }
+  .text_heading{
+    font-size: 1.2rem;
+  }
+  .text_para{
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  .text_main{
+   padding: 0;
+    margin: 0;
+    font-size: 1.1rem;
+  }
 }
 @media screen and (min-width: 700px) and (max-width: 970px) {
   .profilepic {
@@ -44,6 +98,25 @@
     padding-top: 15px;
     padding-bottom: 10px;
   }
+   .headline{
+    font-size: 1.5rem;
+    color: #fff;
+    margin-top: 0.7rem;
+    margin-left: 10vw;
+  }
+  .text_heading{
+    font-size: 1.3rem;
+  }
+  .text_para{
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+  }
+  .text_main{
+   padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
+  }
 }
 @media screen and (min-width: 970px) and (max-width: 1400px) {
   .profilepic {
@@ -52,5 +125,24 @@
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 50%;
+  }
+   .headline{
+    font-size: 1.6rem;
+    color: #fff;
+    margin-top: 0.7rem;
+    margin-left: 10vw;
+  }
+  .text_heading{
+    font-size: 1.2rem;
+  }
+  .text_para{
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+  }
+  .text_main{
+   padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
   }
 }
