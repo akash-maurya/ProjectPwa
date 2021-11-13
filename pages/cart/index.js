@@ -44,7 +44,7 @@ const Cart = ()=>{
     "authToken": authToken,
   };
 
-  const getUrl = "http://localhost:3000/api/Cart/getCartItems";
+  const getUrl = "https://lite-licious.herokuapp.com/api/Cart/getCartItems";
   
   if (authToken) {
     await axios

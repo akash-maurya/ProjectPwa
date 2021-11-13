@@ -57,7 +57,7 @@ const Profile = () => {
   };
 
   async function getdetails() {
-    const hitUrl = "http://localhost:3000/api/update/getdetails";
+    const hitUrl = "https://lite-licious.herokuapp.com/api/update/getdetails";
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",
@@ -125,7 +125,8 @@ const Profile = () => {
     data.append('lastname' , lname);
     data.append('address' ,userAddress);
     data.append('imageUrl' , image);
-    const hitUrl = "http://localhost:3000/api/update/updateDetails";
+    const hitUrl =
+      "https://lite-licious.herokuapp.com/api/update/updateDetails";
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",

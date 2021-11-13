@@ -16,7 +16,7 @@ const Item_bar = (props) => {
 
   const handleDelete = () => {
  
-    const hitUrl = `http://localhost:3000/api/Cart/deleteItem`;
+    const hitUrl = `https://lite-licious.herokuapp.com/api/Cart/deleteItem`;
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",
@@ -72,7 +72,7 @@ const Item_bar = (props) => {
     }
        
 
-       const hitUrl = `http://localhost:3000/api/Cart/updateOrder/dec`;
+       const hitUrl = `https://lite-licious.herokuapp.com/api/Cart/updateOrder/dec`;
 
        const authToken = cookies.get("authToken");
        const header = {
@@ -138,7 +138,7 @@ const Item_bar = (props) => {
   }
 
   const incrementItem = async()=>{
-      const hitUrl = `http://localhost:3000/api/Cart/updateOrder/inc`;
+      const hitUrl = `https://lite-licious.herokuapp.com/api/Cart/updateOrder/inc`;
 
       const authToken = cookies.get("authToken");
       const header = {
