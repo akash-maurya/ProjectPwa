@@ -6,7 +6,6 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import Script from 'next/script';
 import 'bootstrap/dist/css/bootstrap.css'
 config.autoAddCss = false;
-
 function MyApp({ Component, pageProps }) {
 
   useEffect(()=>{
@@ -47,9 +46,11 @@ function MyApp({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"
         ></meta>
+        {/* <script src="/idb.js"></script> */}
       </Head>
-      <Script src="/idb.js"></Script>
+
       <Script src="/utility.js"></Script>
+      <Script src="/idb.js"></Script>
       <Component {...pageProps} />
     </>
   );

@@ -32,7 +32,7 @@ function readone(st,id){
 }
 
 function readallData(st){
- return   dbPromise.
+ return  dbPromise.
     then(function(db){
         var tx = db.transaction(st,'readonly');
         var store = tx.objectStore(st);
