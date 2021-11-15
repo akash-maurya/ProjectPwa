@@ -1,5 +1,5 @@
 ## PWA LITE
-This is a [PWA](https://developers.google.com/web/updates/2015/12/getting-started-pwa)  project  built using [Next.js](https://nextjs.org/) for frontend and [Node.js](https://nodejs.org) for backend. Deployed on Vercel. This repo is only for frontend, you can find backend [here](https://github.com/akash-maurya/pwa-Backend).
+This is a [PWA](https://developers.google.com/web/updates/2015/12/getting-started-pwa)  project  built using [Next.js](https://nextjs.org/) for frontend and [Node.js](https://nodejs.org) for backend. Deployed on Vercel. This repo is only for frontend, you can find backend [here](https://github.com/akash-maurya/new-backend).
 
 ## Deployment
 App is deployed on [Vercel](https://vercel.com/). Vercel uses github repo for deployment. Vercel automatically creates and deploys the build version of app. Vercel is built for nextjs, so it is expected to be faster than other services.
