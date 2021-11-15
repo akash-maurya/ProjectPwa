@@ -1,23 +1,48 @@
 {
-    "name" : "Licious Lite",
-    "short_name" : "Licious Lite",
-    "icons" :[
-        {
-            "src" : "/icon/Lapha.png",
-            "type": "image/png",
-            "sizes" :"256x256"
-        },
-        {
-          "src": "/icon/512x512.png",
-          "type": "image/png",
-          "sizes": "512x512"
-        }
-    ],
-    "start_url":"/",
-    "scope":".",
-    "display":"standalone",
-    "orientation":"portrait-primary",
-    "background-color":"#FFF",
-    "theme_color":  "#FFF",
-    "description":"Lite verison of licious"
+  "name": "Licious Lite",
+  "short_name": "Licious Lite",
+  "icons": [
+    {
+      "src": "/icon/App_icon_16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "/icon/App_icon_24.png",
+      "type": "image/png",
+      "sizes": "24x24"
+    },
+    {
+      "src": "/icon/App_icon_32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/icon/App_icon_64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "/icon/App_icon_128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/icon/App_icon_256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/icon/App_icon_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background-color": "#FFF",
+  "theme_color": "#FFF",
+  "description": "Lite verison of licious"
 }
