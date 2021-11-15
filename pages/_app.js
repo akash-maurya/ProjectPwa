@@ -46,9 +46,6 @@ function MyApp({ Component, pageProps }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/icon/L-icon-180.png"></link>
         <link rel="apple-touch-icon" sizes="256x256" href="/icon/L-icon-256.png"></link>
         <link rel="apple-touch-icon" sizes="512x512" href="/icon/L-icon-512.png"></link>
-        <link rel="apple-touch-icon" sizes="180x180" href="/icon/L-icon-180.png"></link>
-        <link rel="apple-touch-icon" sizes="167x167" href="/icon/L-icon-167.png"></link>
-
 
 
 
