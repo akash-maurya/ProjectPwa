@@ -35,13 +35,13 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-capable" content="yes"></meta>
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="yes" />
-        <link rel="apple-touch-icon" sizes="16x16" href="/icon/App_icon_16.png"></link>
-        <link rel="apple-touch-icon" sizes="24x24" href="/icon/App_icon_24.png"></link>
-        <link rel="apple-touch-icon" sizes="32x32" href="/icon/App_icon_32.png"></link>
-        <link rel="apple-touch-icon" sizes="64x64" href="/icon/App_icon_64.png"></link>
-        <link rel="apple-touch-icon" sizes="128x128" href="/icon/App_icon_128.png"></link>
-        <link rel="apple-touch-icon" sizes="256x256" href="/icon/App_icon_256.png"></link>
-        <link rel="apple-touch-icon" sizes="512x512" href="/icon/App_icon_512.png"></link>
+        <link rel="apple-touch-icon" sizes="16x16" href="/icon/L_icon_16.png"></link>
+        <link rel="apple-touch-icon" sizes="24x24" href="/icon/L_icon_24.png"></link>
+        <link rel="apple-touch-icon" sizes="32x32" href="/icon/L_icon_32.png"></link>
+        <link rel="apple-touch-icon" sizes="64x64" href="/icon/L_icon_64.png"></link>
+        <link rel="apple-touch-icon" sizes="128x128" href="/icon/L_icon_128.png"></link>
+        <link rel="apple-touch-icon" sizes="256x256" href="/icon/L_icon_256.png"></link>
+        <link rel="apple-touch-icon" sizes="512x512" href="/icon/L_icon_512.png"></link>
 
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
