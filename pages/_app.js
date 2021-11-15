@@ -35,13 +35,19 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-capable" content="yes"></meta>
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="yes" />
-        <link rel="apple-touch-icon" sizes="16x16" href="/icon/L_icon_16.png"></link>
-        <link rel="apple-touch-icon" sizes="24x24" href="/icon/L_icon_24.png"></link>
-        <link rel="apple-touch-icon" sizes="32x32" href="/icon/L_icon_32.png"></link>
-        <link rel="apple-touch-icon" sizes="64x64" href="/icon/L_icon_64.png"></link>
-        <link rel="apple-touch-icon" sizes="128x128" href="/icon/L_icon_128.png"></link>
-        <link rel="apple-touch-icon" sizes="256x256" href="/icon/L_icon_256.png"></link>
-        <link rel="apple-touch-icon" sizes="512x512" href="/icon/L_icon_512.png"></link>
+        <link rel="apple-touch-icon" sizes="57x57" href="/icon/L-icon-57.png"></link>
+        <link rel="apple-touch-icon" sizes="60x60" href="/icon/L-icon-60.png"></link>
+        <link rel="apple-touch-icon" sizes="72x72" href="/icon/L-icon-72.png"></link>
+        <link rel="apple-touch-icon" sizes="76x76" href="/icon/L-icon-76.png"></link>
+        <link rel="apple-touch-icon" sizes="114x114" href="/icon/L-icon-114.png"></link>
+        <link rel="apple-touch-icon" sizes="120x120" href="/icon/L-icon-120.png"></link>
+        <link rel="apple-touch-icon" sizes="144x144" href="/icon/L-icon-144.png"></link>
+        <link rel="apple-touch-icon" sizes="152x152" href="/icon/L-icon-152.png"></link>
+        <link rel="apple-touch-icon" sizes="180x180" href="/icon/L-icon-180.png"></link>
+        <link rel="apple-touch-icon" sizes="256x256" href="/icon/L-icon-256.png"></link>
+        <link rel="apple-touch-icon" sizes="512x512" href="/icon/L-icon-512.png"></link>
+
+
 
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
