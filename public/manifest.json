@@ -3,37 +3,37 @@
   "short_name": "Licious Lite",
   "icons": [
     {
-      "src": "/icon/App_icon_16.png",
+      "src": "/icon/L-icon-16.png",
       "type": "image/png",
       "sizes": "16x16"
     },
     {
-      "src": "/icon/App_icon_24.png",
+      "src": "/icon/L-icon-24.png",
       "type": "image/png",
       "sizes": "24x24"
     },
     {
-      "src": "/icon/App_icon_32.png",
+      "src": "/icon/L-icon-32.png",
       "type": "image/png",
       "sizes": "32x32"
     },
     {
-      "src": "/icon/App_icon_64.png",
+      "src": "/icon/L-icon-64.png",
       "type": "image/png",
       "sizes": "64x64"
     },
     {
-      "src": "/icon/App_icon_128.png",
+      "src": "/icon/L-icon-128.png",
       "type": "image/png",
       "sizes": "128x128"
     },
     {
-      "src": "/icon/App_icon_256.png",
+      "src": "/icon/L-icon-256.png",
       "type": "image/png",
       "sizes": "256x256"
     },
     {
-      "src": "/icon/App_icon_512.png",
+      "src": "/icon/L-icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
