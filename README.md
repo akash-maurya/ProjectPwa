@@ -28,6 +28,7 @@ To learn more follow these resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features.
 - [PWA](https://web.dev/progressive-web-apps/) - Deepdive about Progressive Web Apps.
 - [Service Worker](https://developers.google.com/web/ilt/pwa/introduction-to-service-worker) - A Javascript file takesup on tasks like caching, background-sync.
+- [vercel](https://vercel.com/) - Best hosting platform for Nextjs. 
 
 
 
