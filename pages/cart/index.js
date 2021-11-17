@@ -226,7 +226,7 @@ const CheckoutBar = (props)=>{
           {items.map((item) => {
             return (
               <ItemBar
-                key={item._id}
+                key={item.name}
                 itemID={item._id}
                 check_network={active_fallback}
                 increase_cost={inc_cost}

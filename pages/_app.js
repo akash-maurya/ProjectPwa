@@ -34,7 +34,11 @@ function MyApp({ Component, pageProps }) {
         <meta name="apple-mobile-web-app-capable" content="yes"></meta>
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="yes" />
-        <link rel="apple-touch-icon" href="./public/icon/Lapha.png"></link>
+        <link rel="apple-touch-icon" sizes="180x180" href="/icon/L-icon-180.png"></link>
+
+
+
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -45,10 +49,11 @@ function MyApp({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"
         ></meta>
-        <script  defer src = './idb.js'/>
-        <script defer src = './utility.js'/>
-      </Head>
 
+        <script defer src="/idb.js"></script>
+      <script defer src="/utility.js"></script>
+      </Head>
+      
       <Component {...pageProps} />
     </>
   );

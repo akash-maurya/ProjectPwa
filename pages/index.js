@@ -60,6 +60,7 @@ async function getItems(){
  }
 
 
+
  function CountCart (){
   const authToken = cookies.get("authToken");
   const header = {
@@ -67,7 +68,8 @@ async function getItems(){
     "authToken": authToken,
   };
 
-  const getUrl ='https://lite-licious.herokuapp.com/api/Cart/getCartItems';
+
+  const getUrl = "https://lite-licious.herokuapp.com/api/Cart/getCartItems";
   
   if (authToken) {
      axios
@@ -88,8 +90,7 @@ async function getItems(){
 const readguestItem =()=>{
 
  if(!cookies.get('authToken')){
-  readallData("cart") 
-  .then((data)=>{
+  readallData("cart").then((data)=>{
     setTotalItem(data.length);
   })
 }

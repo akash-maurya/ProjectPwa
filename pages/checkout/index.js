@@ -91,7 +91,7 @@ const Checkout = () => {
   };
 
   const updateAddprensent = async () => {
-    const hitUrl = "https://licious-lite.herokuapp.com/api/update/getdetails";
+    const hitUrl = "https://lite-licious.herokuapp.com/api/update/getdetails";
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",
@@ -199,11 +199,20 @@ const Checkout = () => {
                 <img className={style.checkicon} src="/Success.svg"></img>
               </p>
             </div>
+ <br></br>
+<div className="text-center">
+              <Link href="/" passHref>
+                <button className="btn btn-danger my-2">Go to Home</button>
+              </Link>
+            </div>
+<br></br>
           </div>
         </div>
       ) : (
         ""
       )}
+      
+     
 
       {items.length && proceed ? (
         <div className={`container-sm ${style.itemlist}`}>

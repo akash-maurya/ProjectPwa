@@ -19,8 +19,8 @@ const CardItem = (props) => {
     if (authToken) {
       const data = { name: props.title, amount: props.price };
       console.log(data);
-      const addUrl =
-        "https://lite-licious.herokuapp.com/api/Cart/updateOrder/inc";
+
+      const addUrl = "https://lite-licious.herokuapp.com/api/Cart/updateOrder/inc";
       await axios
         .post(addUrl, data, { headers: header })
         .then((res) => {

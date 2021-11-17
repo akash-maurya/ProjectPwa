@@ -125,8 +125,8 @@ const Profile = () => {
     data.append('lastname' , lname);
     data.append('address' ,userAddress);
     data.append('imageUrl' , image);
-    const hitUrl =
-      "https://lite-licious.herokuapp.com/api/update/updateDetails";
+
+    const hitUrl = "https://lite-licious.herokuapp.com/api/update/updateDetails";
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",

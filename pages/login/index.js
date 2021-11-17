@@ -245,7 +245,7 @@ const Login = (props) => {
 
                 {showOTPbox && (
                   <input
-                    type="password"
+                    type="tel"
                     onChange={handleChangeOTP}
                     placeholder="Enter your OTP"
                   />
