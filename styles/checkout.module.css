@@ -108,6 +108,8 @@
     margin-bottom: 2rem;
     color: green;
     border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     background-color: rgb(205, 243, 205);
     padding: 12px;
   }
@@ -225,10 +227,11 @@
     height: 4.8rem;
     min-height: fit-content;
     border : 1px solid green ;
-    /* margin-top: 2rem; */
     margin-bottom: 2rem;
     color: green;
     border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     background-color: rgb(205, 243, 205);
     padding: 12px;
   }
@@ -301,6 +304,8 @@
     margin-bottom: 2rem;
     color: green;
     border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     background-color: rgb(205, 243, 205);
     padding: 12px;
   }

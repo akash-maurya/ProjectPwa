@@ -200,9 +200,11 @@ const Profile = () => {
     event.preventDefault();
 
     const resdata = updateProfile(firstname, lastname, address, image);
+    console.log("resdata");
     if (resdata.success && resdata.success === true) {
-        
-    } else {
+          console.log("profile updated successfully")
+    } 
+    else {
       const authToken = cookies.get("authToken");
       const data = {
         authToken: authToken,

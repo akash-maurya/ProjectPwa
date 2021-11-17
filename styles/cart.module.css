@@ -161,7 +161,7 @@
 .checkout_footer{
     width: 100%;
     position: fixed;
-    bottom: 0px;
+    bottom: 1px;
     margin-top: 1rem;
     display: flex;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -326,7 +326,7 @@
 .checkout_footer{
     width: 100%;
     position: fixed;
-    bottom: 0px;
+    bottom: 1px;
     margin-top: 1rem;
     display: flex;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -336,7 +336,7 @@
 
 .cost{
     width: 50vw;
-    height: 3rem;
+    height: 3.5rem;
     text-align: center;
 }
 
@@ -350,7 +350,7 @@
     width: 49.9vw;
     background-color: #e41d36;
     color: whitesmoke;
-    height: 3rem;
+    height: 3.5rem;
     border:none;
     outline: none;
     border-radius: 3px;
@@ -477,7 +477,7 @@
 .checkout_footer{
     width: 100%;
     position: fixed;
-    bottom: 0px;
+    bottom: 1px;
     margin-top: 1rem;
     display: flex;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -488,7 +488,7 @@
 .cost{
 
     width: 50vw;
-    height: 3rem;
+    height: 3.5rem;
     text-align: center;
 }
 
@@ -504,7 +504,7 @@
     background:#e41d36;
     border: none;
     width: 50vw;
-    height: 3rem;
+    height: 3.5rem;
     font-size: 1rem;
     cursor: pointer;
 }
@@ -628,7 +628,7 @@
 .cost{
 
     width: 50vw;
-    height: 3rem;
+    height: 3.5rem;
     text-align: center;
 }
 
@@ -643,7 +643,7 @@
     background:#e41d36;
     border: none;
     width: 50vw;
-    height: 3rem;
+    height: 3.5rem;
     font-size: 1rem;
     cursor: pointer;
 }
