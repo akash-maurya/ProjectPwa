@@ -13,12 +13,15 @@ import Slide from "@mui/material/Slide";
 import CircularProgress from '@mui/material/CircularProgress';
 import Link  from 'next/dist/client/link';
 
+
 const  Home = () =>{
   
   const [Items,setItems] = useState([]);
   const [load, setloader] = useState(true);
   const [showPopup , setPopup] = useState(false);
   const [nonetwork ,setnonetwork] =useState(false);
+  const [titleofitem , setItemTitle] = useState('');
+  const [message , setmessage] = useState('');
   const [totoalItem , setTotalItem] = useState(0);
   const cookies = new Cookies();
 
@@ -57,19 +60,6 @@ async function getItems(){
  }
 
 
- const checkDummy = async()=>{
-   const hitUrl = `https://lite-licious.herokuapp.com/api/update/checkproxy` ;
-  await axios.get(hitUrl)
-  .then((res)=>{
-    // do nothing
-    return true ;
-  })
-  .catch((err)=>{
-    setloader(false);
-    setnonetwork(true);
-    return false ;
-  })
- }
 
  function CountCart (){
   const authToken = cookies.get("authToken");
@@ -77,6 +67,7 @@ async function getItems(){
     "Content-Type": "application/json",
     "authToken": authToken,
   };
+
 
   const getUrl = "https://lite-licious.herokuapp.com/api/Cart/getCartItems";
   
@@ -110,8 +101,20 @@ const nonetworkzone = ()=>{
   setnonetwork(true);
 }
 
- const handSetPopup = ( event , message)=>{
+ const handSetPopup = ( event , message , title)=>{
+
+   let string = "";
+   if(message === "item added successfully"){
+     string = " added successfully";
+     setmessage("added to cart ");
+   }
+   else{
+     string = 'quantity increased';
+     setmessage("quantity increased");
+   }
     event.preventDefault();
+    setItemTitle(title);
+    // console.log("helo" + message);
     if (message === "item added successfully"){
         setTotalItem((prevVal)=>{
           return prevVal+1;
@@ -121,6 +124,7 @@ const nonetworkzone = ()=>{
     setTimeout(() => {
       setPopup(false);
     }, 1500);
+    
  }
 
 useEffect(() => {
@@ -141,12 +145,12 @@ function TransitionLeft(props) {
       <div>
         <Script src="https://use.fontawesome.com/bff91f34a4.js"></Script>
 
-        <Header 
-         cartItem={totoalItem}
-         isoffline={nonetwork} 
-         isloading={load} 
-         handle_offline = {nonetworkzone}
-         />
+        <Header
+          cartItem={totoalItem}
+          isoffline={nonetwork}
+          isloading={load}
+          handle_offline={nonetworkzone}
+        />
       </div>
 
       {showPopup && (
@@ -167,7 +171,8 @@ function TransitionLeft(props) {
               color: "white",
             }}
           >
-            Item added successfully
+            {console.log(titleofitem)}
+            {titleofitem + " "+message} 
           </Alert>
         </Snackbar>
       )}
@@ -177,7 +182,7 @@ function TransitionLeft(props) {
           {load && (
             <CircularProgress
               sx={{
-                marginTop: "7rem",
+                marginTop: "50vh",
                 marginLeft: "50%",
                 color: "red",
               }}

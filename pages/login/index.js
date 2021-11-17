@@ -5,7 +5,7 @@ import axios  from "axios";
 import React , {useState} from "react";
 import Cookies from 'universal-cookie';
 import router from 'next/router';
-
+import Script from "next/dist/client/script";
 
 
 
@@ -78,8 +78,7 @@ const Login = (props) => {
             resp = result;
           })
           .catch((error) => {
-              
-             console.log(error);
+            console.log(error);
           });
         return resp;
   }
@@ -217,6 +216,8 @@ const Login = (props) => {
 
   return (
     <>
+      <Script src="/idb.js"></Script>
+      <Script src="/utility.js"></Script>
       <div className={style.outer_layer}>
         <div className={style.container}>
           <div className={style.layer}>
@@ -236,10 +237,10 @@ const Login = (props) => {
                   type="tel"
                   autoComplete="off"
                   placeholder="Enter Your phone number"
-                  maxLength = '10'
+                  maxLength="10"
                   disabled={showOTPbox}
                   onChange={handlePhoneChange}
-                  onKeyPress = {onlynumber}
+                  onKeyPress={onlynumber}
                 />
 
                 {showOTPbox && (
@@ -275,7 +276,12 @@ const Login = (props) => {
                 )}
 
                 {!showOTPbox && (
-                  <button  style = { showInvalid ? { backgroundColor : "gray"} : {}} disabled = {showInvalid} type="submit" onClick={handleSubmit}>
+                  <button
+                    style={showInvalid ? { backgroundColor: "gray" } : {}}
+                    disabled={showInvalid}
+                    type="submit"
+                    onClick={handleSubmit}
+                  >
                     Proceed Via OTP
                   </button>
                 )}

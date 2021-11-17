@@ -1,9 +1,8 @@
 import Image from "next/image";
-
+import Script from "next/dist/client/script";
 import style from "../styles/product.module.css";
 import Cookies from "universal-cookie";
 import axios from "axios";
-import Router from "next/router";
 import router from "next/router";
 
 const CardItem = (props) => {
@@ -20,12 +19,13 @@ const CardItem = (props) => {
     if (authToken) {
       const data = { name: props.title, amount: props.price };
       console.log(data);
+
       const addUrl = "https://lite-licious.herokuapp.com/api/Cart/updateOrder/inc";
       await axios
         .post(addUrl, data, { headers: header })
         .then((res) => {
           console.log(res.data);
-          props.triggerPopup(event, res.data.message);
+          props.triggerPopup(event, res.data.message,props.title);
         })
         .catch((error) => {
           router.reload(window.location.reload);
@@ -54,7 +54,7 @@ const CardItem = (props) => {
        const data = { name :  props.title , itemId :  props.itemId , amount :  props.price , quantity :  qt};
         writedata("cart" , data)
         .then(()=>{
-          props.triggerPopup(event, resmessage);
+          props.triggerPopup(event, resmessage,props.title);
           console.log("item added for guest ");
         })
         
@@ -63,6 +63,9 @@ const CardItem = (props) => {
 
   return (
     <>
+      <Script src="/idb.js"></Script>
+      <Script src="/utility.js"></Script>
+
       <div className={style.card_container}>
         <div className={style.card_image}>
           <Image
@@ -75,7 +78,7 @@ const CardItem = (props) => {
         <div className={style.text_container}>
           <h2 className={style.title}>{props.title}</h2>
 
-          <p>{props.description.slice(0,60)}</p>
+          <p>{props.description.slice(0, 60)}</p>
 
           <div className={style.priceAndbutton}>
             <h3 className={style.price}>MRP : ₹{props.price} </h3>

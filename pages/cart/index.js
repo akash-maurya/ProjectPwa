@@ -187,7 +187,7 @@ const CheckoutBar = (props)=>{
       {!(nonetwork === true || loginfail === true) && isloading === true ? (
         <CircularProgress
           sx={{
-            marginTop: "7rem",
+            marginTop: "50vh",
             marginLeft: "50%",
             color: "red",
           }}

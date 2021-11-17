@@ -150,7 +150,7 @@ const Checkout = () => {
       {!items.length && proceed && (
         <CircularProgress
           sx={{
-            marginTop: "7rem",
+            marginTop: "40vh",
             marginLeft: "50%",
             color: "red",
           }}

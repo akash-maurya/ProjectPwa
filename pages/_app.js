@@ -6,7 +6,6 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import Script from 'next/script';
 import 'bootstrap/dist/css/bootstrap.css'
 config.autoAddCss = false;
-
 function MyApp({ Component, pageProps }) {
 
   useEffect(()=>{
@@ -46,11 +45,11 @@ function MyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap"
           rel="stylesheet"
         ></link>
-
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no"
         ></meta>
+
         <script defer src="/idb.js"></script>
       <script defer src="/utility.js"></script>
       </Head>

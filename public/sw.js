@@ -129,7 +129,9 @@ self.addEventListener("fetch", function (event) {
         return fetch(event.request).then(function (res) {
           return caches.open("dynamic").then(function (cache) {
             if (
-              event.request.url === 'https://lite-licious.herokuapp.com/api/items/getItems' ||
+
+              event.request.url ===
+                "https://lite-licious.herokuapp.com/api/items/getItems" ||
               event.request.url ===
                 "https://lite-licious.herokuapp.com/api/Cart/getCartItems" ||
               event.request.url ===
@@ -150,7 +152,10 @@ self.addEventListener("fetch", function (event) {
                 "https://lite-licious.herokuapp.com/api/update/checkproxy" ||
               event.request.url ===
                 "https://lite-licious.herokuapp.com/api/update/orderCount" ||
-              event.request.url === "https://lite-licious.herokuapp.com/api/Cart/clearCart"
+              event.request.url ===
+                "https://lite-licious.herokuapp.com/api/Cart/clearCart"
+
+            
             ) {
               // console.log(event.request.url);
             } else {

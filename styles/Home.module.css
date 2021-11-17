@@ -80,7 +80,7 @@
     width: 100%;
     position: fixed;
     bottom: 0;
-    height: 3rem;
+    height: 3.5rem;
     align-items: center;
     justify-content: space-between;
     border :none ;
@@ -104,6 +104,7 @@
 .flexview{
   display: flex;
   font-size: 1rem;
+  margin-left: 0.5rem;
 }
 .cart_button{
   background-color: rgb(0, 175, 239);
@@ -117,6 +118,7 @@
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 1.2em;
+  margin-right: 0.5rem;
 }
 }
 
@@ -126,7 +128,7 @@
      display: grid;
      grid-template-columns: repeat(3,1fr);
      grid-column-gap : 2px;
-    margin-top: 6rem;
+     margin-top: 6rem;
    }
     .create_box{
     margin-top: 6rem;
