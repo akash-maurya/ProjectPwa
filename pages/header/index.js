@@ -6,7 +6,7 @@ import React , {useState, useEffect} from 'react';
 import axios from "axios";
 import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCartOutlined";
-
+import Script from "next/dist/client/script";
 const Product = (props) => {
 
 const [showlogin , setLogin] = useState(false);
@@ -89,7 +89,23 @@ useEffect(() => {
   return (
     <>
       <div>
-        <nav className={style.navbar}>
+        <Script defer>
+          {`window.addEventListener('online', function(e) {
+    // add your logic to update the UI when online
+    console.log("You are online");
+    document.getElementById('navbar').style.filter = 'grayscale(0)';
+    document.body.style.pointerEvents = 'auto'
+}, false);
+
+window.addEventListener('offline', function(e) {
+    // add your logic to update the UI when offline
+    console.log("You are offline");
+  document.getElementById('navbar').style.filter = 'grayscale(1)';
+  document.body.style.pointerEvents = 'none'
+}, false);`}
+        </Script>
+
+        <nav id="navbar" className={style.navbar}>
           <h1 className={style.heading}>
             <span className={style.blue}>Licious</span>
             <span className={style.green}>Lite</span>
@@ -107,25 +123,28 @@ useEffect(() => {
             {!props.isoffline && !props.isloading && CheckLogin && (
               <Link href="/profilePage" passHref>
                 <button className={style.profile_btn}>
-                  
-                 {  <span className={style.name}>Hi {name}</span>}
+                  {<span className={style.name}>Hi {name}</span>}
                 </button>
               </Link>
             )}
 
             <Link href="/cart" passHref>
-              <button disabled={(!CheckLogin || props.isOffline)&& props.cartItem === 0} className={style.btn}>
+              <button
+                disabled={
+                  (!CheckLogin || props.isOffline) && props.cartItem === 0
+                }
+                className={style.btn}
+              >
                 <span>Cart </span>
-                <Badge badgeContent={props.cartItem} color="secondary"> 
+                <Badge badgeContent={props.cartItem} color="secondary">
                   <ShoppingCartIcon fontSize="small" />
                 </Badge>
               </button>
             </Link>
           </div>
-          {showlogin && <Login 
-          toggleLogin={handleclick}
-          handle_offline = {nonetwork}
-          />}
+          {showlogin && (
+            <Login toggleLogin={handleclick} handle_offline={nonetwork} />
+          )}
         </nav>
       </div>
     </>

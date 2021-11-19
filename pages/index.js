@@ -18,6 +18,7 @@ const  Home = () =>{
   
   const [Items,setItems] = useState([]);
   const [load, setloader] = useState(true);
+  const [isOnline ,setOnline] = useState(false);
   const [showPopup , setPopup] = useState(false);
   const [nonetwork ,setnonetwork] =useState(false);
   const [titleofitem , setItemTitle] = useState('');
@@ -60,16 +61,14 @@ async function getItems(){
  }
 
 
-
  function CountCart (){
   const authToken = cookies.get("authToken");
   const header = {
     "Content-Type": "application/json",
     "authToken": authToken,
   };
-
-
-  const getUrl = "https://lite-licious.herokuapp.com/api/Cart/getCartItems";
+  
+  const getUrl ='https://lite-licious.herokuapp.com/api/Cart/getCartItems';
   
   if (authToken) {
      axios
@@ -90,11 +89,13 @@ async function getItems(){
 const readguestItem =()=>{
 
  if(!cookies.get('authToken')){
-  readallData("cart").then((data)=>{
+  readallData("cart") 
+  .then((data)=>{
     setTotalItem(data.length);
   })
 }
 }
+
 
 
 const nonetworkzone = ()=>{
@@ -131,101 +132,114 @@ useEffect(() => {
  
     getItems()
     CountCart();
-    readguestItem();
-  
- 
+    readguestItem();  
 }, [])
 
 function TransitionLeft(props) {
   return <Slide {...props} direction="left" />;
 }
  
-  return (
-    <div>
-      <div>
-        <Script src="https://use.fontawesome.com/bff91f34a4.js"></Script>
 
+  return (
+    <>
+      <Script id = 'my-script' defer>
+        {`window.addEventListener('online', function(e) {
+      console.log("You are online");
+      document.getElementById('grid_container').style.filter = 'grayscale(0)';
+      document.getElementById('grid_container').style.position = 'static'
+      }, false);
+
+      window.addEventListener('offline', function(e) {
+  
+       console.log("You are offline");
+       document.getElementById('grid_container').style.filter = 'grayscale(1)';
+       document.getElementById('grid_container').style.position = 'fixed'
+      }, false);`}
+      </Script>
+
+      <div id="grey" className={style.grey}>
         <Header
           cartItem={totoalItem}
           isoffline={nonetwork}
           isloading={load}
           handle_offline={nonetworkzone}
         />
-      </div>
 
-      {showPopup && (
-        <Snackbar
-          anchorOrigin={{
-            vertical: "top",
-            horizontal: "center",
-          }}
-          TransitionComponent={TransitionLeft}
-          open={showPopup}
-          autoHideDuration={2500}
-        >
-          <Alert
-            severity="success"
-            sx={{
-              marginTop: "4rem",
-              bgcolor: "rgb(64, 158, 64)",
-              color: "white",
+        {showPopup && (
+          <Snackbar
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "center",
             }}
+            TransitionComponent={TransitionLeft}
+            open={showPopup}
+            autoHideDuration={2500}
           >
-            {console.log(titleofitem)}
-            {titleofitem + " "+message} 
-          </Alert>
-        </Snackbar>
-      )}
-
-      {!nonetwork && (
-        <div className={style.create_box}>
-          {load && (
-            <CircularProgress
+            <Alert
+              severity="success"
               sx={{
-                marginTop: "50vh",
-                marginLeft: "50%",
-                color: "red",
+                marginTop: "4rem",
+                bgcolor: "rgb(64, 158, 64)",
+                color: "white",
               }}
-              color="secondary"
-            />
-          )}
-          {!load && (
-            <div className={style.grid_container}>
-              {Items.map((item) => {
-                return (
-                  <CardItem
-                    triggerPopup={handSetPopup}
-                    key={item.itemId}
-                    itemId={item.itemId}
-                    title={item.title}
-                    description={item.description}
-                    image={item.image}
-                    price={item.price}
-                    weight={item.weight}
-                  />
-                );
-              })}
-            </div>
-          )}
-        </div>
-      )}
-      {!load && totoalItem > 0 ? (
-        <div className={style.footerCart}>
-          <div className={style.flexview}>
-            <img src="/bluetick.png" className={style.bluetick}></img>
-            <div>Added to Cart</div>
-          </div>
+            >
+              {console.log(titleofitem)}
+              {titleofitem + " " + message}
+            </Alert>
+          </Snackbar>
+        )}
 
-          <Link href="/cart" passHref>
-            <button className={style.cart_button}>View cart </button>
-          </Link>
-        </div>
-      ) : (
-        ""
-      )}
-      {nonetwork && <Fallback />}
-      <Footer nonetwork={nonetwork} isloading={load} />
-    </div>
+        {!nonetwork && (
+          <div className={style.create_box}>
+            {load && (
+              <CircularProgress
+                sx={{
+                  marginTop: "50vh",
+                  marginLeft: "44%",
+                  color: "red",
+                }}
+                color="secondary"
+              />
+            )}
+
+            {!load && (
+              <div id="grid_container" className={style.grid_container}>
+                {Items.map((item) => {
+                  return (
+                    <CardItem
+                      triggerPopup={handSetPopup}
+                      key={item.itemId}
+                      itemId={item.itemId}
+                      title={item.title}
+                      description={item.description}
+                      image={item.image}
+                      price={item.price}
+                      weight={item.weight}
+                    />
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
+        {!load && totoalItem > 0 ? (
+          <div className={style.footerCart}>
+            <div className={style.flexview}>
+              <img src="/bluetick.png" className={style.bluetick}></img>
+              <div>Added to Cart</div>
+            </div>
+
+            <Link href="/cart" passHref>
+              <button className={style.cart_button}>View cart </button>
+            </Link>
+          </div>
+        ) : (
+          ""
+        )}
+        {nonetwork && <Fallback />}
+        <Footer nonetwork={nonetwork} isloading={load} />
+      </div>
+    </>
   );
 }
 
