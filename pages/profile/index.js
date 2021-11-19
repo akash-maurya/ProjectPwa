@@ -146,7 +146,8 @@ const Profile = () => {
           setTimeout(() => {
             setUpdate(false);
           }, 1500);
-          return response.data;
+          console.log(response.data.success);
+          return response.data.success;
         })
         .catch((err) => {
           setoffline(true);
@@ -196,14 +197,55 @@ const Profile = () => {
     }
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+var bool = false;
+    var data = new FormData();
+    
+    data.append('file' , imagefile);
+    data.append('firstname', firstname);
+    data.append('lastname' , lastname);
+    data.append('address' , address);
+    data.append('imageUrl' , image);
 
-    const resdata = updateProfile(firstname, lastname, address, image);
-    console.log("resdata");
-    if (resdata.success && resdata.success === true) {
-          console.log("profile updated successfully")
-    } 
+    const hitUrl = "https://lite-licious.herokuapp.com/api/update/updateDetails";
+    const authToken = cookies.get("authToken");
+    const header = {
+      "Content-Type": "application/json",
+      authToken: authToken,
+    };
+
+    if (authToken) {
+      await axios
+        .put(hitUrl, data, {
+          headers: header,
+        })
+        .then((response) => {
+          // console.log(response.data);
+          console.log("called----------")
+          setUpdate(true);
+
+          setTimeout(() => {
+            setUpdate(false);
+          }, 1500);
+          bool = response.data.success;
+          console.log(bool);
+          return response.data.success;
+        })
+        .catch((err) => {
+          setoffline(true);
+
+          setTimeout(() => {
+            setoffline(false);
+          }, 3500);
+          console.log(err);
+        });
+    }
+    
+    if (bool === true) {
+            console.log("profile updated successfully");
+            Router.push("/profilePage");
+      } 
     else {
       const authToken = cookies.get("authToken");
       const data = {
@@ -291,15 +333,23 @@ const Profile = () => {
 
       <div className={style.container}>
         {load ? <Loader /> : ""}
-        <div className={style.update_box}>
-          <Link href="/profilePage" passHref>
-            <FontAwesomeIcon
-              className={style.back_arrow}
-              icon={faChevronLeft}
-            ></FontAwesomeIcon>
-          </Link>
-
-          <h1 id={style.heading}>Update Profile</h1>
+        <div
+          className="d-flex justify-content-between text-center "
+          style={{ background: "#e41d36" }}
+        >
+          <div
+            className="p-2 bd-highlight align-self-center"
+            style={{ color: "#fff" }}
+          >
+            <Link href="/profilePage" passHref>
+              <div style={{ cursor: "pointer" }}>
+                <FontAwesomeIcon icon={faChevronLeft}></FontAwesomeIcon>
+              </div>
+            </Link>
+          </div>
+          <div className="p-2 flex-grow-1 bd-highlight">
+            <h2 style={{ color: "#fff" }}>Update Profile</h2>
+          </div>
         </div>
 
         <form
