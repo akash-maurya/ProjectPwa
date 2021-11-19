@@ -138,8 +138,9 @@ const Checkout = () => {
     return (
       <>
       <li className="list-group-item">
-        <div className="fs-5 text-center">
-          <p className = {style.title}>{props.name}</p>
+        <div className="fs-5 d-flex justify-content-between">
+          <div className = {`fs-5 ${style.title}`}>{props.name}</div>
+          <div className = "fs-4">x {props.quantity}</div>
         </div>
       </li>
       </>
@@ -224,7 +225,7 @@ const Checkout = () => {
               {items.map((item , index) => {
                 return (
                   
-                    <ItemBox key={index} name={item.name} />
+                    <ItemBox key={index} name={item.name} quantity = {item.quantity} />
                  
                 );
               })}
