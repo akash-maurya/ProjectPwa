@@ -249,9 +249,9 @@ const CheckoutBar = (props)=>{
       {!(nonetwork === true || loginfail === true) &&
       cost === 0 &&
       !(isloading === true) ? (
-        <div>
+        
           <button className={style.empty_cart}>Your Cart is Empty</button>
-        </div>
+        
       ) : ''}
 
       {cost && !(nonetwork || loginfail )? <CheckoutBar total={cost} /> : ""}
