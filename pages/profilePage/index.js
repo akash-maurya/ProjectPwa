@@ -8,6 +8,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import Styles from "../../styles/profilePage.module.css";
 import Router from "next/router";
 import Loader from '../../components/loader';
+import CircularProgress from "@mui/material/CircularProgress";
+
 
 
 function Profile() {
@@ -78,7 +80,13 @@ function Profile() {
   return (
     <div>
 
-      {load ? <Loader/> : ""}
+      {load ?  <CircularProgress
+          sx={{
+            marginTop: "50vh",
+            marginLeft: "50%",
+            color: "red",
+          }}
+        /> : ""}
       <div
         className="d-flex justify-content-between "
         style={{ background: "#e41d36" }}
