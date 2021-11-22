@@ -21,11 +21,30 @@ const Login = (props) => {
   const [hash ,setHash] = useState("");
   const[showNetworkError ,setNetworkError] = useState(false);
   
+  const clearCart = async () => {
+    const hitUrl = `https://lite-licious.herokuapp.com/api/Cart/clearCart`;
+    const authToken = cookies.get("authToken");
+    const header = {
+      "Content-Type": "application/json",
+      authToken: authToken,
+    };
+    await axios
+      .delete(hitUrl, { headers: header })
+      .then((res) => {
+        // do nothing
+        console.log("cart cleared...");
+      })
+      .catch((err) => {
+        console.log("cart did not clear..");
+      });
+  };
 
   async function readGuestData() {
      
      await readallData('cart')
      .then(async data =>{
+
+      clearCart();
        
         for( let i = 0 ; i < data.length ; i++){
           const item = data[i];
@@ -216,8 +235,6 @@ const Login = (props) => {
 
   return (
     <>
-      <Script src="/idb.js"></Script>
-      <Script src="/utility.js"></Script>
       <div className={style.outer_layer}>
         <div className={style.container}>
           <div className={style.layer}>

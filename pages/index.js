@@ -143,17 +143,21 @@ function TransitionLeft(props) {
   return (
     <>
       <Script id = 'my-script' defer>
-        {`window.addEventListener('online', function(e) {
+      {`window.addEventListener('online', function(e) {
       console.log("You are online");
+      if( document.getElementById('grid_container')){
       document.getElementById('grid_container').style.filter = 'grayscale(0)';
       document.getElementById('grid_container').style.position = 'static'
+      }
       }, false);
 
       window.addEventListener('offline', function(e) {
   
        console.log("You are offline");
+       if( document.getElementById('grid_container')){
        document.getElementById('grid_container').style.filter = 'grayscale(1)';
        document.getElementById('grid_container').style.position = 'fixed'
+       }
       }, false);`}
       </Script>
 
