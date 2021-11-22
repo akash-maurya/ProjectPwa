@@ -4,23 +4,26 @@ import style from "../styles/product.module.css";
 import Cookies from "universal-cookie";
 import axios from "axios";
 import router from "next/router";
+import React , {useState} from 'react';
 
 const CardItem = (props) => {
   const cookies = new Cookies();
+  const [click , setclick] = useState(false);
 
   const addItem = async (event) => {
+
     event.preventDefault();
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",
       "authToken": authToken,
     };
-
+   setclick(true);
     if (authToken) {
       const data = { name: props.title, amount: props.price };
       console.log(data);
-
-      const addUrl = "https://lite-licious.herokuapp.com/api/Cart/updateOrder/inc";
+      const addUrl =
+        "https://lite-licious.herokuapp.com/api/Cart/updateOrder/inc";
       await axios
         .post(addUrl, data, { headers: header })
         .then((res) => {
@@ -83,7 +86,11 @@ const CardItem = (props) => {
           <div className={style.priceAndbutton}>
             <h3 className={style.price}>MRP : ₹{props.price} </h3>
             <a>
-              <button onClick={addItem} className={style.button}>
+              <button
+               style={ click ?{ backgroundColor: "#e41d36"  , color : 'white'}:{}}
+                onClick={addItem}
+                className={style.button}
+              >
                 Add to Cart
               </button>
             </a>

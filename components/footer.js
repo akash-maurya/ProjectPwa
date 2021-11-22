@@ -5,21 +5,24 @@ const footer = (props)=>{
 
     return (
       <>
-        <Script id = "footer-script" defer>
+        <Script id="footer-script" defer>
           {`window.addEventListener('online', function(e) {
       console.log("You are online");
+      if(document.getElementById('footer')){
       document.getElementById('footer').style.filter = 'grayscale(0)';
       document.getElementById('footer').style.marginTop = 'auto';
       document.getElementById('footer').style.position = 'static';
-      
+      }
       }, false);
 
       window.addEventListener('offline', function(e) {
   
        console.log("You are offline");
+       if(document.getElementById('footer')){
        document.getElementById('footer').style.filter = 'grayscale(1)';
        document.getElementById('footer').style.marginTop = '110%';
        document.getElementById('footer').style.position = 'static';
+       }
       }, false);`}
         </Script>
         <div

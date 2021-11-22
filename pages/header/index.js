@@ -90,18 +90,23 @@ useEffect(() => {
     <>
       <div>
         <Script defer>
-          {`window.addEventListener('online', function(e) {
+        {`window.addEventListener('online', function(e) {
     // add your logic to update the UI when online
     console.log("You are online");
-    document.getElementById('navbar').style.filter = 'grayscale(0)';
-    document.body.style.pointerEvents = 'auto'
+    if( document.getElementById('navbar')){
+       document.getElementById('navbar').style.filter = 'grayscale(0)';
+       document.getElementById('navbar').style.pointerEvents = 'auto';
+    }
 }, false);
 
 window.addEventListener('offline', function(e) {
     // add your logic to update the UI when offline
     console.log("You are offline");
-  document.getElementById('navbar').style.filter = 'grayscale(1)';
-  document.body.style.pointerEvents = 'none'
+  if(document.getElementById('navbar')){
+     document.getElementById('navbar').style.filter = 'grayscale(1)';
+     document.getElementById('navbar').style.pointerEvents = 'none';
+   }
+  
 }, false);`}
         </Script>
 

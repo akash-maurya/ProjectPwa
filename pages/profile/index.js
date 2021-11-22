@@ -139,15 +139,15 @@ const Profile = () => {
           headers: header,
         })
         .then((response) => {
-          // console.log(response.data);
-          console.log("called----------")
+          
           setUpdate(true);
 
           setTimeout(() => {
             setUpdate(false);
           }, 1500);
-          console.log(response.data.success);
-          return response.data.success;
+           // console.log(response.data);
+           res = response.data.success ;
+           return response.data.success ;
         })
         .catch((err) => {
           setoffline(true);
@@ -159,10 +159,6 @@ const Profile = () => {
         });
     }
     return res;
-  }
-
-  function openInput() {
-     document.getElementById('file').click();
   }
 
   function validate(key, val) {
@@ -199,50 +195,13 @@ const Profile = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-var bool = false;
-    var data = new FormData();
+    setload(true);
+    const response = updateProfile(firstname, lastname, address, image);
+   const resdata = response ;
+setload(false);
+   
     
-    data.append('file' , imagefile);
-    data.append('firstname', firstname);
-    data.append('lastname' , lastname);
-    data.append('address' , address);
-    data.append('imageUrl' , image);
-
-    const hitUrl = "https://lite-licious.herokuapp.com/api/update/updateDetails";
-    const authToken = cookies.get("authToken");
-    const header = {
-      "Content-Type": "application/json",
-      authToken: authToken,
-    };
-
-    if (authToken) {
-      await axios
-        .put(hitUrl, data, {
-          headers: header,
-        })
-        .then((response) => {
-          // console.log(response.data);
-          console.log("called----------")
-          setUpdate(true);
-
-          setTimeout(() => {
-            setUpdate(false);
-          }, 1500);
-          bool = response.data.success;
-          console.log(bool);
-          return response.data.success;
-        })
-        .catch((err) => {
-          setoffline(true);
-
-          setTimeout(() => {
-            setoffline(false);
-          }, 3500);
-          console.log(err);
-        });
-    }
-    
-    if (bool === true) {
+    if (resdata === true) {
             console.log("profile updated successfully");
             Router.push("/profilePage");
       } 
