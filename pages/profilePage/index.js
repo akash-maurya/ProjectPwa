@@ -80,13 +80,7 @@ function Profile() {
   return (
     <div>
 
-      {load ?  <CircularProgress
-          sx={{
-            marginTop: "50vh",
-            marginLeft: "50%",
-            color: "red",
-          }}
-        /> : ""}
+      {load ?  <Loader /> : ""}
       <div
         className="d-flex justify-content-between "
         style={{ background: "#e41d36" }}
