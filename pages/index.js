@@ -56,7 +56,7 @@ async function getItems(){
     .catch((err) => {
       setloader(false);
       setnonetwork(true);
-      console.log(err);
+      //console.log(err);
     });
  }
 
@@ -81,7 +81,7 @@ async function getItems(){
       })
       .catch((err) => {
       
-        console.log(err);
+        //console.log(err);
       });
   }
 }
@@ -144,19 +144,29 @@ function TransitionLeft(props) {
     <>
       <Script id = 'my-script' defer>
       {`window.addEventListener('online', function(e) {
-      console.log("You are online");
+      // console.log("You are online");
       if( document.getElementById('grid_container')){
       document.getElementById('grid_container').style.filter = 'grayscale(0)';
-      document.getElementById('grid_container').style.position = 'static'
+      document.getElementById('grid_container').style.position = 'static',
+      document.getElementById('grid_container').style.pointerEvents = 'auto'
+         if( document.getElementById('fcart')){
+          document.getElementById('fcart').style.filter = 'grayscale(0)' ;
+          document.getElementById('fcart').style.pointerEvents = 'auto' ;
+        }
       }
+     
       }, false);
-
       window.addEventListener('offline', function(e) {
   
-       console.log("You are offline");
+      //  console.log("You are offline");
        if( document.getElementById('grid_container')){
        document.getElementById('grid_container').style.filter = 'grayscale(1)';
-       document.getElementById('grid_container').style.position = 'fixed'
+       document.getElementById('grid_container').style.position = 'fixed';
+       document.getElementById('grid_container').style.pointerEvents = 'none';
+        if( document.getElementById('fcart')){
+          document.getElementById('fcart').style.filter = 'grayscale(1)' ;
+          document.getElementById('fcart').style.pointerEvents = 'none' ;
+        }
        }
       }, false);`}
       </Script>
@@ -187,7 +197,7 @@ function TransitionLeft(props) {
                 color: "white",
               }}
             >
-              {console.log(titleofitem)}
+              {/* {console.log(titleofitem)} */}
               {titleofitem + " " + message}
             </Alert>
           </Snackbar>

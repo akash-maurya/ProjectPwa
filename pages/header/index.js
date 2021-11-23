@@ -57,7 +57,7 @@ if (authToken) {
       }
     })
     .catch((err) => {
-      console.log(err);
+      //console.log(err);
         setfallback(true);
 
     });
@@ -78,7 +78,7 @@ const handleclick = (event)=>{
    setLogin((prevVal)=>{
      return !prevVal ;
    })
-   console.log(showlogin + "--");
+   //console.log(showlogin + "--");
 }
 
 
@@ -92,7 +92,7 @@ useEffect(() => {
         <Script defer>
         {`window.addEventListener('online', function(e) {
     // add your logic to update the UI when online
-    console.log("You are online");
+    //console.log("You are online");
     if( document.getElementById('navbar')){
        document.getElementById('navbar').style.filter = 'grayscale(0)';
        document.getElementById('navbar').style.pointerEvents = 'auto';
@@ -101,7 +101,7 @@ useEffect(() => {
 
 window.addEventListener('offline', function(e) {
     // add your logic to update the UI when offline
-    console.log("You are offline");
+    //console.log("You are offline");
   if(document.getElementById('navbar')){
      document.getElementById('navbar').style.filter = 'grayscale(1)';
      document.getElementById('navbar').style.pointerEvents = 'none';

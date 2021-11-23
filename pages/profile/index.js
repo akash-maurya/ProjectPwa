@@ -10,11 +10,10 @@ import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import Slide from "@mui/material/Slide";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft ,faCamera } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faCamera } from "@fortawesome/free-solid-svg-icons";
 import "bootstrap/dist/css/bootstrap.css";
-import Loader from '../../components/loader';
-
-
+import Loader from "../../components/loader";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Profile = () => {
   const cookies = new Cookies();
@@ -23,18 +22,17 @@ const Profile = () => {
   const [lastname, setlastname] = useState("");
   const [address, setadress] = useState("");
   const [image, setimage] = useState("/user.jpeg");
-  const [imagefile , setimagefile] = useState(null);
+  const [imagefile, setimagefile] = useState(null);
   const [mobileNumber, setmobileNumber] = useState(0);
   const [ApiFirstName, setApiFirstName] = useState("");
   const [ApiLastName, setApiLastName] = useState("");
   const [ApiAddress, setApiAddress] = useState("");
-  const [ApiImage, setApiImage ] = useState("");
+  const [ApiImage, setApiImage] = useState("");
   const [Isvalid, setIsvalid] = useState(true);
   const [showUpdate, setUpdate] = useState(false);
   const [showoffline, setoffline] = useState(false);
-  const [load , setload] = useState(true) ;
-
-
+  const [load, setload] = useState(true);
+  const [updateLoad, setupdateLoad] = useState(true);
   const handlefirstname = (event) => {
     setfirstname(event.target.value);
     validate("firstname", event.target.value);
@@ -70,38 +68,32 @@ const Profile = () => {
           headers: header,
         })
         .then((response) => {
-        
-
           if (response.data.success === true) {
             const resdata = response.data.data;
-            // console.log(resdata);
-          if(resdata.name !== 'undefined'){
+            //console.log(resdata);
+            if (resdata.name !== "undefined") {
+              const namesplit = resdata.name.split(" ");
 
-            
-            const namesplit = resdata.name.split(" ");
+              setfirstname(namesplit[0]);
+              setlastname(namesplit[1]);
+              if (resdata.address && resdata.image) {
+                setadress(resdata.address);
+                setimage(resdata.image);
+                setApiAddress(resdata.address);
+                setApiImage(resdata.image);
+              }
 
-            setfirstname(namesplit[0]);
-            setlastname(namesplit[1]);
-            if(resdata.address && resdata.image)
-           { 
-              setadress(resdata.address);
-              setimage(resdata.image);
-              setApiAddress(resdata.address);
-              setApiImage(resdata.image);
-          }
-
-            setmobileNumber(resdata.mobileNumber);
+              setmobileNumber(resdata.mobileNumber);
 
               setApiFirstName(namesplit[0]);
               setApiLastName(namesplit[1]);
-            
             }
             setload(false);
           }
         })
         .catch((err) => {
-          Router.push('/');
-          console.log(err);
+          Router.push("/");
+          //console.log(err);
         });
     }
   }
@@ -110,23 +102,19 @@ const Profile = () => {
     getdetails();
   }, []);
 
-  const handlelogout = () => {
-    cookies.remove("authToken");
-    Router.push("/");
-  };
-
   async function updateProfile(fname, lname, userAddress, image) {
     let res = "";
 
     var data = new FormData();
-    
-    data.append('file' , imagefile);
-    data.append('firstname', fname);
-    data.append('lastname' , lname);
-    data.append('address' ,userAddress);
-    data.append('imageUrl' , image);
 
-    const hitUrl = "https://lite-licious.herokuapp.com/api/update/updateDetails";
+    data.append("file", imagefile);
+    data.append("firstname", fname);
+    data.append("lastname", lname);
+    data.append("address", userAddress);
+    data.append("imageUrl", image);
+
+    const hitUrl =
+      "https://lite-licious.herokuapp.com/api/update/updateDetails";
     const authToken = cookies.get("authToken");
     const header = {
       "Content-Type": "application/json",
@@ -139,15 +127,14 @@ const Profile = () => {
           headers: header,
         })
         .then((response) => {
-          
           setUpdate(true);
 
           setTimeout(() => {
             setUpdate(false);
           }, 1500);
-           // console.log(response.data);
-           res = response.data.success ;
-           return response.data.success ;
+          // //console.log(response.data);
+          res = response.data.success;
+          return response.data.success;
         })
         .catch((err) => {
           setoffline(true);
@@ -155,7 +142,7 @@ const Profile = () => {
           setTimeout(() => {
             setoffline(false);
           }, 3500);
-          console.log(err);
+          //console.log(err);
         });
     }
     return res;
@@ -180,15 +167,13 @@ const Profile = () => {
       } else {
         setIsvalid(true);
       }
-    } 
-    else if (key === "image") {
+    } else if (key === "image") {
       if (ApiImage !== val) {
         setIsvalid(false);
       } else {
         setIsvalid(true);
       }
-    } 
-    else {
+    } else {
       setIsvalid(true);
     }
   }
@@ -196,39 +181,38 @@ const Profile = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setload(true);
-    const response = updateProfile(firstname, lastname, address, image);
-   const resdata = response ;
-setload(false);
-   
-    
+    const response = await updateProfile(firstname, lastname, address, image);
+    const resdata = response;
+    setload(false);
+
     if (resdata === true) {
-            console.log("profile updated successfully");
-            Router.push("/profilePage");
-      } 
-    else {
+      //console.log("profile updated successfully");
+      setTimeout(() => {
+        Router.push("/profilePage");
+      }, 1500);
+    } else {
       const authToken = cookies.get("authToken");
       const data = {
         authToken: authToken,
         firstname: firstname,
         lastname: lastname,
         address: address,
-        image: image
+        image: image,
       };
 
       if ("serviceWorker" in navigator && "SyncManager" in window) {
         navigator.serviceWorker.ready.then(function (sw) {
-
           writedata("profile", data)
             .then(function () {
-              console.log("sync new profile registered");
+              //console.log("sync new profile registered");
               return sw.sync.register("sync-new-profile");
             })
             .catch(function (err) {
-              console.log(err);
+              //console.log(err);
             });
         });
       }
-      console.log("failed to update");
+      //console.log("failed to update");
     }
   };
 
@@ -319,9 +303,9 @@ setload(false);
             <img className={Styles.profilepic} src={image} alt="Profile pic" />
 
             <div>
-              <label htmlFor="file" className = {style.camera_outer}>
-                <img className ={style.camera} src = "/camera.png"></img>
-                </label>
+              <label htmlFor="file" className={style.camera_outer}>
+                <img className={style.camera} src="/camera.png"></img>
+              </label>
               <input
                 type="file"
                 id="file"
@@ -382,17 +366,16 @@ setload(false);
                 value={address}
               />
             </div>
-
             <button
               type="submit"
-              className={style.btn}
+              className={`btn ${style.btn}`}
               id="submitbtn"
               disabled={Isvalid}
-            >
-              Submit
-            </button>
+              style={Isvalid ? { backgroundColor: "gray" } : {}}
 
-           
+            >
+              Submit 
+            </button>
           </div>
         </form>
       </div>

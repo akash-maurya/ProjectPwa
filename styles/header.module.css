@@ -9,6 +9,7 @@
 .navbar {
   position: fixed;
   top: 0;
+  filter: grayscale(0);
   min-width: 100vw;
   max-width: 25rem;
   background-color: #e41d36;
@@ -55,6 +56,7 @@ div.search_box:hover {
   height: 3rem;
   border-radius: 5px;
   color: #e41d36;
+  background-color: white;
   border: 1px solid #e41d36;
   font-size: 1.2rem;
 }
@@ -117,6 +119,7 @@ button.btn:hover {
     height: 3rem;
     border-radius: 5px;
     color: #e41d36;
+    background-color: white;
     border: 1px solid #e41d36;
     font-size: 1rem;
   }
@@ -146,7 +149,8 @@ button.btn:hover {
     margin: 0;
     padding: 0;
     align-items: center;
-
+    position: fixed;
+    top:0;
     flex-wrap: wrap;
     height: 5rem;
   }
@@ -201,6 +205,7 @@ button.btn:hover {
     height: 2.5rem;
     border-radius: 5px;
     color: #e41d36;
+    background-color: white;
     border: 1px solid #e41d36;
     font-size: 0.8rem;
   }
@@ -268,6 +273,7 @@ button.btn:hover {
     height: 2.5rem;
     border-radius: 5px;
     color: #e41d36;
+    background-color: white;
     border: 1px solid #e41d36;
     font-size: 0.9rem;
   }
@@ -317,6 +323,7 @@ button.btn:hover {
     height: 2.8rem;
     border-radius: 5px;
     color: #e41d36;
+    background-color: white;
     border: 1px solid #e41d36;
     font-size: 1rem;
   }
@@ -377,6 +384,7 @@ button.btn:hover {
     height: 2.8rem;
     border-radius: 5px;
     color: #e41d36;
+    background-color: white;
     border: 1px solid #e41d36;
     font-size: 1rem;
   }

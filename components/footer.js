@@ -7,34 +7,34 @@ const footer = (props)=>{
       <>
         <Script id="footer-script" defer>
           {`window.addEventListener('online', function(e) {
-      console.log("You are online");
+     // console.log("You are online");
       if(document.getElementById('footer')){
       document.getElementById('footer').style.filter = 'grayscale(0)';
-      document.getElementById('footer').style.marginTop = 'auto';
+      document.getElementById('footer').style.marginTop = '17vh';
       document.getElementById('footer').style.position = 'static';
       }
       }, false);
 
       window.addEventListener('offline', function(e) {
   
-       console.log("You are offline");
+      // console.log("You are offline");
        if(document.getElementById('footer')){
        document.getElementById('footer').style.filter = 'grayscale(1)';
-       document.getElementById('footer').style.marginTop = '110%';
+       document.getElementById('footer').style.marginTop = '100vh';
        document.getElementById('footer').style.position = 'static';
        }
       }, false);`}
         </Script>
         <div
           id="footer"
-          style={
-            props.nonetwork
-              ? { marginTop: "22vh" }
-              : props.isloading
-              ? { marginTop: "50vh" }
-              : {}
-          }
           className={style.footer_container}
+          style={
+            props.nonetwork === true
+              ? { position: "fixed", bottom: "0" }
+              : (props.isloading
+              ? { display: "none" }
+              : {})
+          }
         >
           <h1> @2021 Delightful Gourmet Pvt Ltd. All Rights Reserved</h1>
           <p>

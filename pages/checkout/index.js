@@ -28,10 +28,10 @@ const Checkout = () => {
     await axios.delete(hitUrl , { headers : header})
           .then((res)=>{
             // do nothing
-            console.log("cart cleared...");
+            //console.log("cart cleared...");
           })
           .catch((err)=>{
-            console.log("cart did not clear..")
+            //console.log("cart did not clear..")
           })
     
 
@@ -44,7 +44,7 @@ const Checkout = () => {
       "Content-Type": "application/json",
       "authToken": authToken,
     };
-    console.log(authToken);
+    //console.log(authToken);
     const auth = cookies.get("authToken");
     const body = {
       "userAuth": auth,
@@ -54,12 +54,12 @@ const Checkout = () => {
       await axios
         .post(hitUrl, body, { headers: header })
         .then((res) => {
-          console.log("Order Count increased");
-          console.log(res);
+          //console.log("Order Count increased");
+          //console.log(res);
         })
         .catch((err) => {
-          console.log("Order Count updation failure");
-          console.log(err);
+          //console.log("Order Count updation failure");
+          //console.log(err);
         });
     }
   }
@@ -79,13 +79,13 @@ const Checkout = () => {
         })
         .then((response) => {
           const data = response.data;
-          console.log(response);
-          console.log(data);
+          //console.log(response);
+          //console.log(data);
           setItems(data);     
         })
         .catch((err) => {
           setfallback(true);
-          console.log(err);
+          //console.log(err);
         });
     }
   };
@@ -106,7 +106,7 @@ const Checkout = () => {
         .then((response) => {
           if (response.data.success === true) {
             if (response.data.data.address.trim().length !== 0) {
-              console.log(response.data.data.address);
+              //console.log(response.data.data.address);
               getOrderItems();
               setTimeout(() => {
                 clearCart();
@@ -119,13 +119,13 @@ const Checkout = () => {
         })
         .catch((err) => {
           setfallback(true);
-          console.log(err);
+          //console.log(err);
         });
     }
   };
   
   const redirectTocart = ()=>{
-    console.log(" going out")
+    //console.log(" going out")
     router.push('/cart');
   }
   

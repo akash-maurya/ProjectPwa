@@ -23,7 +23,7 @@ const Item_bar = (props) => {
       "authToken": authToken,
     };
    const data  = {"itemID" : props.itemID};
-   console.log(data);
+   //console.log(data);
     if (authToken) {
     
       
@@ -34,17 +34,17 @@ const Item_bar = (props) => {
         .then((response) => {
           setHide(true);
           hidden = true ;
-          console.log(hidden);
+          //console.log(hidden);
           props.handle_snack();
           props.decrease_cost(props.amount*quant);
-          console.log("item deleted successfully");
+          //console.log("item deleted successfully");
           
           return true;
         })
         .catch((err) => {
           props.check_network();
-          console.log("error occured " );
-          console.log(err);
+          //console.log("error occured " );
+          //console.log(err);
         });
     }
     else{
@@ -54,7 +54,7 @@ const Item_bar = (props) => {
         setHide(true);
         props.handle_snack();
         props.decrease_cost(props.amount * quant);
-        console.log("deleted");
+        //console.log("deleted");
       })
     }
   };
@@ -82,7 +82,7 @@ const Item_bar = (props) => {
 
        const data = { name: props.name, itemId :  props.itemId , amount: props.amount };
 
-       console.log(data);
+       //console.log(data);
 
        if (authToken) {
          axios
@@ -98,12 +98,12 @@ const Item_bar = (props) => {
                   setprice((prevVal) => {
                     return prevVal - props.amount;
                   });
-                  console.log("decreasing cost")
+                  //console.log("decreasing cost")
                   props.decrease_cost(props.amount);
            })
            .catch((err) => {
              props.check_network();
-             console.log(err);
+             //console.log(err);
            });
        }
        else{
@@ -115,7 +115,7 @@ const Item_bar = (props) => {
                 qt = item.quantity - 1;
                 
                 await deleteItem("cart", item.name).then(() => {
-                  console.log("updating item..");
+                  //console.log("updating item..");
                 });
                 break;
               }
@@ -130,7 +130,7 @@ const Item_bar = (props) => {
                 return prevVal - props.amount;
               });
                props.decrease_cost(props.amount);
-            console.log("item quanity decreased");
+            //console.log("item quanity decreased");
           });
         
        }
@@ -147,14 +147,14 @@ const Item_bar = (props) => {
       };
 
       const data = { name: props.name, amount: props.amount/quant };
-      console.log(data);
+      //console.log(data);
       if (authToken) {
         axios
           .post(hitUrl, data, {
             headers: header,
           })
           .then((response) => {
-            console.log("item incremented successfully");
+            //console.log("item incremented successfully");
                setquant((prevVal) => {
                  return prevVal + 1;
                });
@@ -162,14 +162,14 @@ const Item_bar = (props) => {
                  return prevVal + props.amount;
                });
 
-               console.log("price increasing");
+               //console.log("price increasing");
                props.increase_cost(props.amount);
               
           })
           .catch((err) => {
             props.check_network();
-            console.log("something went wrong")
-            console.log(err);
+            //console.log("something went wrong")
+            //console.log(err);
           });
       }
       else{
@@ -181,7 +181,7 @@ const Item_bar = (props) => {
               qt = item.quantity + 1;
 
               await deleteItem("cart", item.itemId).then(() => {
-                console.log("updating item..");
+                //console.log("updating item..");
               });
               break;
             }
@@ -196,7 +196,7 @@ const Item_bar = (props) => {
             return prevVal + props.amount;
           });
            props.increase_cost(props.amount);
-          console.log("item quanity increased");
+          //console.log("item quanity increased");
         });
       }
 

@@ -32,10 +32,10 @@ const Login = (props) => {
       .delete(hitUrl, { headers: header })
       .then((res) => {
         // do nothing
-        console.log("cart cleared...");
+        //console.log("cart cleared...");
       })
       .catch((err) => {
-        console.log("cart did not clear..");
+        //console.log("cart did not clear..");
       });
   };
 
@@ -60,11 +60,11 @@ const Login = (props) => {
         }
         await axios.post(hitUrl , product , {headers : header})
         .then((res)=>{
-          console.log("item added successfully" + res);
+          //console.log("item added successfully" + res);
           deleteItem('cart',item.itemId);
         })
         .catch((err)=>{
-          console.log("failed to add ");
+          //console.log("failed to add ");
         })
         if(i == data.length -1){
           setTimeout(()=>{
@@ -97,7 +97,7 @@ const Login = (props) => {
             resp = result;
           })
           .catch((error) => {
-            console.log(error);
+            //console.log(error);
           });
         return resp;
   }
@@ -111,7 +111,7 @@ const Login = (props) => {
         resp = result ;
     })
     .catch((error)=>{
-      console.log(error);
+      //console.log(error);
     })
     return resp ;
   }
@@ -119,8 +119,8 @@ const Login = (props) => {
   const handleSubmit = async (event)=>{
 
     event.preventDefault() ;
-    console.log(phonenumber);
-    console.log(OTP);
+    //console.log(phonenumber);
+    //console.log(OTP);
     if(phonenumber.toString().length === 10){
           
             const res = await SentOTP(phonenumber);
@@ -178,7 +178,7 @@ const Login = (props) => {
       
       setTimeout(()=>{
           props.toggleLogin(event);
-      }, 2000);
+      }, 1000);
     }
   }
 
@@ -206,7 +206,7 @@ const Login = (props) => {
 
   const handleChangeOTP = (event)=>{
        setOTP(event.target.value);
-       console.log(OTP);
+       //console.log(OTP);
 
   }
 

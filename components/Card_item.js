@@ -21,18 +21,18 @@ const CardItem = (props) => {
    setclick(true);
     if (authToken) {
       const data = { name: props.title, amount: props.price };
-      console.log(data);
+      //console.log(data);
       const addUrl =
         "https://lite-licious.herokuapp.com/api/Cart/updateOrder/inc";
       await axios
         .post(addUrl, data, { headers: header })
         .then((res) => {
-          console.log(res.data);
+          //console.log(res.data);
           props.triggerPopup(event, res.data.message,props.title);
         })
         .catch((error) => {
           router.reload(window.location.reload);
-          console.log(error);
+          //console.log(error);
         });
      }
      else{
@@ -47,7 +47,7 @@ const CardItem = (props) => {
                 resmessage = "item quantity increased";
                 await deleteItem("cart" , item.itemId)
                 .then(()=>{
-                  console.log("updating item..");
+                  //console.log("updating item..");
                 })
                 break ;
                 
@@ -58,7 +58,7 @@ const CardItem = (props) => {
         writedata("cart" , data)
         .then(()=>{
           props.triggerPopup(event, resmessage,props.title);
-          console.log("item added for guest ");
+          //console.log("item added for guest ");
         })
         
      }

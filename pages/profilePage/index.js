@@ -44,7 +44,7 @@ function Profile() {
           if (response.data.success === true) {
             const resdata = response.data.data;
             const namesplit = resdata.name.split(" ");
-            console.log(namesplit);
+           // console.log(namesplit);
             if (namesplit[0] != undefined) {
               setfirstname(namesplit[0]);
             }
@@ -60,14 +60,14 @@ function Profile() {
             if (resdata.mobileNumber != undefined) {
               setmobileNumber(resdata.mobileNumber);
             }
-            console.log("order count "+ resdata.orderCount )
+           // console.log("order count "+ resdata.orderCount )
             setordercount(resdata.orderCount);
           }
           setload(false);
         })
         .catch((err) => {
           Router.push("/");
-          console.log(err);
+          //console.log(err);
         });
     }
   }

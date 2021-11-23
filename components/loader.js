@@ -8,8 +8,8 @@ const Loader = () => {
     <div className = {Style.body}>
       <CircularProgress
         sx={{
-          marginTop: "47%",
-          marginLeft: "47%",
+          marginTop: "50%",
+          marginLeft: "45%",
           color: "red",
         }}
       />

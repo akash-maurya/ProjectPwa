@@ -62,13 +62,13 @@ const Cart = ()=>{
       })
       .catch((err) => {
          setnonetwork(true);
-         console.log(err);
+         //console.log(err);
       });
   }
   else{
     readallData("cart")
     .then(function(data){
-      console.log("data");
+     // console.log("data");
       let totalcost = 0 ;
       for(let i = 0 ; i < data.length ; i++){
           totalcost += (data[i].amount*data[i].quantity) ;
@@ -87,7 +87,7 @@ const Cart = ()=>{
 
 const checkUser = ()=>{
   if(cookies.get('authToken')){
-     console.log("authToken")
+     //console.log("authToken")
      router.push('/checkout');
   }
   else{
