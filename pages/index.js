@@ -236,7 +236,7 @@ function TransitionLeft(props) {
             )}
           </div>
         )}
-        {!load && totoalItem > 0 ? (
+        {!load && !nonetwork && totoalItem > 0 ? (
           <div className={style.footerCart}>
             <div className={style.flexview}>
               <img src="/bluetick.png" className={style.bluetick}></img>
